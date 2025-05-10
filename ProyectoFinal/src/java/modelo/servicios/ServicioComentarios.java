@@ -138,4 +138,28 @@ public class ServicioComentarios implements Serializable {
         }
     }
     
+    public List<Comentarios> findComentariosPorPelicula(Long idPelicula) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.createQuery(
+                "SELECT c FROM Comentarios c WHERE c.peliculas.id = :idPelicula", Comentarios.class)
+                .setParameter("idPelicula", idPelicula)
+                .getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
+    public List<Comentarios> findComentariosPorSerie(Long idSerie) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.createQuery(
+                "SELECT c FROM Comentarios c WHERE c.series.id = :idSerie", Comentarios.class)
+                .setParameter("idSerie", idSerie)
+                .getResultList();
+        } finally {
+            em.close();
+        }
+    }
+    
 }

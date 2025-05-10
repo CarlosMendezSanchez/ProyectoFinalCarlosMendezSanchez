@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/carlos/2º%20DAW/Proyecto_final_Carlos/ProyectoFinal/web/index.html</file>
-            <file>file:/home/carlos/2º%20DAW/Proyecto_final_Carlos/ProyectoFinal/web/usuario/inicio.jsp</file>
-            <file>file:/home/carlos/2º%20DAW/Proyecto_final_Carlos/ProyectoFinal/web/usuario/peliculas.jsp</file>
-            <file>file:/home/carlos/2º%20DAW/Proyecto_final_Carlos/ProyectoFinal/src/java/controlador/pelicula/ControladorPelicula.java</file>
-            <file>file:/home/carlos/2º%20DAW/Proyecto_final_Carlos/ProyectoFinal/src/java/controlador/serie/ControladorSerie.java</file>
+            <file>file:/home/carlos/2º%20DAW/Proyecto_final_Carlos/ProyectoFinal/web/usuario/mostrarPeli.jsp</file>
+            <file>file:/home/carlos/2º%20DAW/Proyecto_final_Carlos/ProyectoFinal/src/java/controlador/pelicula/ControladorMostrarPeliculaIndividual.java</file>
+            <file>file:/home/carlos/2º%20DAW/Proyecto_final_Carlos/ProyectoFinal/src/java/controlador/serie/ControladorMostrarSerieIndividual.java</file>
+            <file>file:/home/carlos/2º%20DAW/Proyecto_final_Carlos/ProyectoFinal/web/usuario/mostrarSerie.jsp</file>
+            <file>file:/home/carlos/2º%20DAW/Proyecto_final_Carlos/ProyectoFinal/src/java/controlador/comentario/ControladorCrearComentario.java</file>
+            <file>file:/home/carlos/2º%20DAW/Proyecto_final_Carlos/ProyectoFinal/web/usuario/crearComentario.jsp</file>
+            <file>file:/home/carlos/2º%20DAW/Proyecto_final_Carlos/ProyectoFinal/src/java/controlador/comentario/ControladorCrearComentarioSerie.java</file>
         </group>
     </open-files>
 </project-private>

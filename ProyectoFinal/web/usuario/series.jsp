@@ -29,6 +29,7 @@
                     <td>${series.temporadas}</td>
                     <td>${series.genero}</td>
                     <td>${series.ano}</td>
+                    <td><a href="${pageContext.request.contextPath}/ControladorMostrarSerieIndividual?id=${series.id}">Ver serie</a></td>
                 </tr>
             </table>
         </c:forEach>

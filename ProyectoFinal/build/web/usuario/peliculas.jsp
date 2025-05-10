@@ -22,6 +22,7 @@
                     <th>Duracion</th>
                     <th>Genero</th>
                     <th>Año</th>
+                    <th>Ver peliculas</th>
                 </tr>
                 <tr>
                     <td>${peliculas.titulo}</td>
@@ -29,6 +30,7 @@
                     <td>${peliculas.duracion}</td>
                     <td>${peliculas.genero}</td>
                     <td>${peliculas.ano}</td>
+                    <td><a href="${pageContext.request.contextPath}/ControladorMostrarPeliculaIndividual?id=${peliculas.id}">Ver peli</a></td>
                 </tr>
             </table>
         </c:forEach>
