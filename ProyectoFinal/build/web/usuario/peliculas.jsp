@@ -14,6 +14,8 @@
     <body>
         <h1>Hola ${usuario.nombre}</h1>
         <h1>Aquí van las peliculas</h1>
+        <a href="${pageContext.request.contextPath}/ControladorMostrarPeliculaMeGusta">Ver mis películas favoritas</a>
+        <a href="${pageContext.request.contextPath}/ControladorConsultarPelis">Buscar películas</a>
         <c:forEach var="peliculas" items="${peliculas}">
             <table border="1">
                 <tr>
@@ -38,5 +40,7 @@
         <c:if test="${not empty error}">
             <div class="error">${error}</div>
         </c:if>
+            
+        <a href="${pageContext.request.contextPath}/usuario/ControladorInicio">Volver al menú</a>
     </body>
 </html>

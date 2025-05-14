@@ -13,6 +13,16 @@
     </head>
     <body>
         <h1>${series.titulo}</h1>
+        <form method="post">
+            <input type="hidden" name="idSer" value="${series.id}"/>
+            <input type="hidden" name="accion" value="meGusta" />
+            <button type="submit">Me gusta</button>
+        </form>
+        <form method="post">
+            <input type="hidden" name="idSer" value="${series.id}"/>
+            <input type="hidden" name="accion" value="noMeGusta" />
+            <button type="submit">No me gusta</button>
+        </form>
         <h3>${series.descripcion}</h3>
         <h3>${series.temporadas}</h3>
         <h3>${series.genero}</h3>
@@ -31,5 +41,6 @@
         <c:if test="${not empty error}">
             <div class="error">${error}</div>
         </c:if>
+        <a href="${pageContext.request.contextPath}/ControladorSerie">Volver al catálogo de series</a>
     </body>
 </html>

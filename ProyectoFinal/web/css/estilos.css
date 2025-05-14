@@ -1,0 +1,5 @@
+/* Estilos de los mensajes de error */
+.error {
+    color: #e74c3c;
+    display: none;
+}

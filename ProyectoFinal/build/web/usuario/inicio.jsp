@@ -14,5 +14,6 @@
     <body>
         <a href="${pageContext.request.contextPath}/ControladorPelicula">Ver Películas</a>
         <a href="${pageContext.request.contextPath}/ControladorSerie">Ver Series</a>
+        <a href="${pageContext.request.contextPath}/ControladorLogin">Volver al inicio de sesión</a>
     </body>
 </html>

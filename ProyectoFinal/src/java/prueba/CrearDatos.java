@@ -57,8 +57,6 @@ public class CrearDatos extends HttpServlet {
         usuario.setEmail("pepe@ejemplo.com");
         usuario.setPassword("1234");
         usuario.setTipo("usuario");
-        usuario.setMeGustaPeliculas(Arrays.asList());
-        usuario.setMeGustaSeries(Arrays.asList());
         su.create(usuario);
 
         // Crear película

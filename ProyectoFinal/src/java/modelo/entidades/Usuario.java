@@ -36,14 +36,6 @@ public class Usuario implements Serializable {
     private String apellidos;
     @Column(length = 20, nullable = false)
     private String tipo;
-    @ElementCollection
-    @CollectionTable(name = "me_gusta_peliculas", joinColumns = @JoinColumn(name = "id_usuario"))
-    @Column(name = "id_pelicula")
-    private List<Integer> meGustaPeliculas;
-    @ElementCollection
-    @CollectionTable(name = "me_gusta_series", joinColumns = @JoinColumn(name = "id_usuario"))
-    @Column(name = "id_serie")
-    private List<Integer> meGustaSeries;
 
     public Long getId() {
         return id;
@@ -91,22 +83,6 @@ public class Usuario implements Serializable {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public List<Integer> getMeGustaPeliculas() {
-        return meGustaPeliculas;
-    }
-
-    public void setMeGustaPeliculas(List<Integer> meGustaPeliculas) {
-        this.meGustaPeliculas = meGustaPeliculas;
-    }
-
-    public List<Integer> getMeGustaSeries() {
-        return meGustaSeries;
-    }
-
-    public void setMeGustaSeries(List<Integer> meGustaSeries) {
-        this.meGustaSeries = meGustaSeries;
     }
 
     @Override

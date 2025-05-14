@@ -14,9 +14,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.entidades.Comentarios;
 import modelo.entidades.Series;
+import modelo.entidades.Usuario;
 import modelo.servicios.ServicioComentarios;
+import modelo.servicios.ServicioMeGustaSeries;
 import modelo.servicios.ServicioSeries;
 
 /**
@@ -63,7 +66,24 @@ public class ControladorMostrarSerieIndividual extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
+        ServicioMeGustaSeries servicio = new ServicioMeGustaSeries(emf);
         
+        HttpSession session = request.getSession();
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        
+        String accion = request.getParameter("accion");
+        Long idSerie = Long.parseLong(request.getParameter("idSer"));
+        String error = "";
+        
+        if ("meGusta".equals(accion)) {
+            servicio.marcarMeGusta(usuario.getId(), idSerie);
+        } else if ("noMeGusta".equals(accion)) {
+            servicio.quitarMeGusta(usuario.getId(), idSerie);
+        }
+        
+        emf.close();
+        response.sendRedirect("ControladorMostrarSerieIndividual?id=" + idSerie);
     }
 
     /**

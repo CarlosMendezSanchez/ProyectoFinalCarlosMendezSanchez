@@ -14,6 +14,8 @@
     <body>
         <h1>Hola ${usuario.nombre}</h1>
         <h1>Aquí van las series</h1>
+        <a href="${pageContext.request.contextPath}/ControladorMostrarSerieMeGusta">Ver mis series favoritas</a>
+        <a href="${pageContext.request.contextPath}/ControladorConsultarSeries">Buscar series</a>
         <c:forEach var="series" items="${series}">
             <table border="1">
                 <tr>
@@ -37,5 +39,7 @@
         <c:if test="${not empty error}">
             <div class="error">${error}</div>
         </c:if>
+            
+        <a href="${pageContext.request.contextPath}/usuario/ControladorInicio">Volver al menú</a>
     </body>
 </html>

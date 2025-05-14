@@ -14,9 +14,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import modelo.entidades.Comentarios;
 import modelo.entidades.Peliculas;
+import modelo.entidades.Usuario;
 import modelo.servicios.ServicioComentarios;
+import modelo.servicios.ServicioMeGustaPeliculas;
 import modelo.servicios.ServicioPeliculas;
 
 /**
@@ -63,7 +66,26 @@ public class ControladorMostrarPeliculaIndividual extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
+        ServicioMeGustaPeliculas servicioFavoritos = new ServicioMeGustaPeliculas(emf);
         
+        HttpSession session = request.getSession();
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        
+        String accion = request.getParameter("accion");
+        Long idPelicula = Long.parseLong(request.getParameter("idPel"));
+        String error = "";
+        
+        if ("meGusta".equals(accion)) {
+            servicioFavoritos.marcarMeGusta(usuario.getId(), idPelicula);
+        } else if ("noMeGusta".equals(accion)) {
+            servicioFavoritos.quitarMeGusta(usuario.getId(), idPelicula);
+        }
+        
+        emf.close();
+            
+        // Redirigir nuevamente a la vista de esa película
+        response.sendRedirect("ControladorMostrarPeliculaIndividual?id=" + idPelicula);
     }
 
     /**
