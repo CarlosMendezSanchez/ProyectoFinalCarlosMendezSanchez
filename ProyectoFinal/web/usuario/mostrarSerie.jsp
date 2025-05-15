@@ -13,6 +13,7 @@
     </head>
     <body>
         <h1>${series.titulo}</h1>
+        <img src="${pageContext.request.contextPath}/img/series/${series.imagen}" alt="Portada" width="200">
         <form method="post">
             <input type="hidden" name="idSer" value="${series.id}"/>
             <input type="hidden" name="accion" value="meGusta" />

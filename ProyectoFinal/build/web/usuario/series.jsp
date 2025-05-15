@@ -15,10 +15,12 @@
         <h1>Hola ${usuario.nombre}</h1>
         <h1>Aquí van las series</h1>
         <a href="${pageContext.request.contextPath}/ControladorMostrarSerieMeGusta">Ver mis series favoritas</a>
+        <a href="${pageContext.request.contextPath}/ControladorGeneroSeries">Buscar series por género</a>
         <a href="${pageContext.request.contextPath}/ControladorConsultarSeries">Buscar series</a>
         <c:forEach var="series" items="${series}">
             <table border="1">
                 <tr>
+                    <th>Imagen</th>
                     <th>Titulo</th>
                     <th>Descripcion</th>
                     <th>Temporadas</th>
@@ -26,6 +28,7 @@
                     <th>Año</th>
                 </tr>
                 <tr>
+                    <td><img src="${pageContext.request.contextPath}/img/series/${series.imagen}" alt="Portada" width="200"></td>
                     <td>${series.titulo}</td>
                     <td>${series.descripcion}</td>
                     <td>${series.temporadas}</td>

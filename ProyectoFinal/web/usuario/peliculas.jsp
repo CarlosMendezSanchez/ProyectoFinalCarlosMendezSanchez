@@ -15,10 +15,12 @@
         <h1>Hola ${usuario.nombre}</h1>
         <h1>Aquí van las peliculas</h1>
         <a href="${pageContext.request.contextPath}/ControladorMostrarPeliculaMeGusta">Ver mis películas favoritas</a>
+        <a href="${pageContext.request.contextPath}/ControladorGeneroPelis">Buscar películas por género</a>
         <a href="${pageContext.request.contextPath}/ControladorConsultarPelis">Buscar películas</a>
         <c:forEach var="peliculas" items="${peliculas}">
             <table border="1">
                 <tr>
+                    <th>Imagen</th>
                     <th>Titulo</th>
                     <th>Descripcion</th>
                     <th>Duracion</th>
@@ -27,6 +29,7 @@
                     <th>Ver peliculas</th>
                 </tr>
                 <tr>
+                    <td><img src="${pageContext.request.contextPath}/img/peliculas/${peliculas.imagen}" alt="Portada" width="200"></td>
                     <td>${peliculas.titulo}</td>
                     <td>${peliculas.descripcion}</td>
                     <td>${peliculas.duracion}</td>

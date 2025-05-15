@@ -1,0 +1,39 @@
+{
+    "peliculas": [
+    {
+    "titulo": "Inception",
+    "año": 2010,
+    "descripcion": "Un ladrón que roba secretos a través del uso de la tecnología de sueños es contratado para plantar una idea en la mente de un CEO.",
+    "duracion": 148,
+    "genero": "Ciencia ficción"
+    },
+    {
+    "titulo": "The Shawshank Redemption",
+    "año": 1994,
+    "descripcion": "Dos hombres encarcelados forman un vínculo durante años, encontrando consuelo y eventual redención a través de actos de decencia común.",
+    "duracion": 142,
+    "genero": "Drama"
+    },
+    {
+    "titulo": "Interstellar",
+    "año": 2014,
+    "descripcion": "Un equipo de exploradores viaja a través de un agujero de gusano en el espacio en un intento de asegurar el futuro de la humanidad.",
+    "duracion": 169,
+    "genero": "Ciencia ficción"
+    },
+    {
+    "titulo": "Parasite",
+    "año": 2019,
+    "descripcion": "Una familia pobre se infiltra en una casa rica, desarrollando una relación simbiótica que pronto se vuelve peligrosa.",
+    "duracion": 132,
+    "genero": "Thriller"
+    },
+    {
+    "titulo": "The Godfather",
+    "año": 1972,
+    "descripcion": "El patriarca de una familia mafiosa transfiere el control de su imperio criminal a su hijo reticente.",
+    "duracion": 175,
+    "genero": "Crimen"
+    }
+]
+}

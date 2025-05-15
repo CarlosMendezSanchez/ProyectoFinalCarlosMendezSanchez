@@ -1,0 +1,39 @@
+{
+    "series": [
+    {
+        "titulo": "Breaking Bad",
+        "año": 2008,
+        "descripcion": "Un profesor de química con cáncer se convierte en fabricante de metanfetamina.",
+        "temporadas": 5,
+        "genero": "Drama"
+    },
+    {
+        "titulo": "Stranger Things",
+        "año": 2016,
+        "descripcion": "Un grupo de niños descubre eventos sobrenaturales en su pueblo.",
+        "temporadas": 4,
+        "genero": "Ciencia ficción"
+    },
+    {
+        "titulo": "Friends",
+        "año": 1994,
+        "descripcion": "Seis amigos viven en Nueva York compartiendo risas, amores y problemas.",
+        "temporadas": 10,
+        "genero": "Comedia"
+    },
+    {
+        "titulo": "Dark",
+        "año": 2017,
+        "descripcion": "Un pueblo alemán guarda un misterio que conecta generaciones.",
+        "temporadas": 3,
+        "genero": "Thriller"
+    },
+    {
+        "titulo": "The Office",
+        "año": 2005,
+        "descripcion": "Un documental ficticio que sigue a los empleados de una oficina.",
+        "temporadas": 9,
+        "genero": "Comedia"
+    }
+    ]
+}

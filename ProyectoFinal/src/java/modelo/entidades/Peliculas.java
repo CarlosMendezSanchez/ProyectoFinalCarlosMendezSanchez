@@ -34,6 +34,8 @@ public class Peliculas implements Serializable, Comparable<Peliculas> {
     private String genero;
     @Column(nullable = false)
     private int duracion;
+    @Column(length = 255, nullable = false)
+    private String imagen;
     
     public Long getId() {
         return id;
@@ -83,6 +85,14 @@ public class Peliculas implements Serializable, Comparable<Peliculas> {
         this.duracion = duracion;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
     @Override
     public int compareTo(Peliculas o) {
         return this.ano.compareTo(o.ano);

@@ -13,6 +13,7 @@
     </head>
     <body>
         <h1>${peliculas.titulo}</h1>
+        <img src="${pageContext.request.contextPath}/img/peliculas/${peliculas.imagen}" alt="Portada" width="200">
         <form method="post">
             <input type="hidden" name="idPel" value="${peliculas.id}"/>
             <input type="hidden" name="accion" value="meGusta" />
