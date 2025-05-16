@@ -14,9 +14,9 @@
     <body>
         <h1>Hola ${usuario.nombre}</h1>
         <h1>Aquí van las peliculas</h1>
-        <a href="${pageContext.request.contextPath}/ControladorMostrarPeliculaMeGusta">Ver mis películas favoritas</a>
-        <a href="${pageContext.request.contextPath}/ControladorGeneroPelis">Buscar películas por género</a>
-        <a href="${pageContext.request.contextPath}/ControladorConsultarPelis">Buscar películas</a>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorMostrarPeliculaMeGusta">Ver mis películas favoritas</a>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorGeneroPelis">Buscar películas por género</a>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorConsultarPelis">Buscar películas</a>
         <c:forEach var="peliculas" items="${peliculas}">
             <table border="1">
                 <tr>
@@ -35,7 +35,7 @@
                     <td>${peliculas.duracion}</td>
                     <td>${peliculas.genero}</td>
                     <td>${peliculas.ano}</td>
-                    <td><a href="${pageContext.request.contextPath}/ControladorMostrarPeliculaIndividual?id=${peliculas.id}">Ver peli</a></td>
+                    <td><a href="${pageContext.request.contextPath}/usuario/ControladorMostrarPeliculaIndividual?id=${peliculas.id}">Ver peli</a></td>
                 </tr>
             </table>
         </c:forEach>

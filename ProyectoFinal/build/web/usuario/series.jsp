@@ -14,9 +14,9 @@
     <body>
         <h1>Hola ${usuario.nombre}</h1>
         <h1>Aquí van las series</h1>
-        <a href="${pageContext.request.contextPath}/ControladorMostrarSerieMeGusta">Ver mis series favoritas</a>
-        <a href="${pageContext.request.contextPath}/ControladorGeneroSeries">Buscar series por género</a>
-        <a href="${pageContext.request.contextPath}/ControladorConsultarSeries">Buscar series</a>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorMostrarSerieMeGusta">Ver mis series favoritas</a>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorGeneroSeries">Buscar series por género</a>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorConsultarSeries">Buscar series</a>
         <c:forEach var="series" items="${series}">
             <table border="1">
                 <tr>
@@ -34,7 +34,7 @@
                     <td>${series.temporadas}</td>
                     <td>${series.genero}</td>
                     <td>${series.ano}</td>
-                    <td><a href="${pageContext.request.contextPath}/ControladorMostrarSerieIndividual?id=${series.id}">Ver serie</a></td>
+                    <td><a href="${pageContext.request.contextPath}/usuario/ControladorMostrarSerieIndividual?id=${series.id}">Ver serie</a></td>
                 </tr>
             </table>
         </c:forEach>

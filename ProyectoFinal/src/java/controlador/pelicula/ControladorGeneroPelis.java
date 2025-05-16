@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author carlos
  */
-@WebServlet(name = "ControladorGeneroPelis", urlPatterns = {"/ControladorGeneroPelis"})
+@WebServlet(name = "ControladorGeneroPelis", urlPatterns = {"/usuario/ControladorGeneroPelis"})
 public class ControladorGeneroPelis extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

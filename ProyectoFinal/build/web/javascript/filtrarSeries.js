@@ -6,7 +6,7 @@
 function filtrar() {
     filtro = document.getElementById("filtro").value;
     $.ajax({
-        url: "ControladorFiltrarSeries",
+        url: "/ProyectoFinal/usuario/ControladorFiltrarSeries",
         method: 'POST',
         data: {filtro : filtro}        
     }).done(function(datos) {

@@ -20,12 +20,12 @@
 
     <c:forEach var="peliculas" items="${favoritas}">
         <div>
-            <a href="ControladorMostrarPeliculaIndividual?id=${peliculas.id}">
+            <a href="usuario/ControladorMostrarPeliculaIndividual?id=${peliculas.id}">
                 <h3>${peliculas.titulo}</h3>
             </a>
             <p>${peliculas.descripcion}</p>
         </div>
     </c:forEach>
-    <a href="${pageContext.request.contextPath}/ControladorPelicula">Volver al catálogo de películas</a>
+    <a href="${pageContext.request.contextPath}/usuario/ControladorPelicula">Volver al catálogo de películas</a>
     </body>
 </html>

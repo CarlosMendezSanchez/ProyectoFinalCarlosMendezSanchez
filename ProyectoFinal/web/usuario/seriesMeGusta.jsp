@@ -20,12 +20,12 @@
 
     <c:forEach var="series" items="${favoritas}">
         <div>
-            <a href="ControladorMostrarSerieIndividual?id=${series.id}">
+            <a href="usuario/ControladorMostrarSerieIndividual?id=${series.id}">
                 <h3>${series.titulo}</h3>
             </a>
             <p>${series.descripcion}</p>
         </div>
     </c:forEach>
-    <a href="${pageContext.request.contextPath}/ControladorSerie">Volver al catálogo de series</a>
+    <a href="${pageContext.request.contextPath}/usuario/ControladorSerie">Volver al catálogo de series</a>
     </body>
 </html>

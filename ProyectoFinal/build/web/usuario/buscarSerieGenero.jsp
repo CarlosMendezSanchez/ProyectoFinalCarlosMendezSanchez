@@ -36,7 +36,7 @@
             </thead>
             <tbody></tbody>
           </table>
-         <a href="${pageContext.request.contextPath}/ControladorSerie">Volver al catálogo de series</a>
-         <script src="javascript/series.js"></script>
+         <a href="${pageContext.request.contextPath}/usuario/ControladorSerie">Volver al catálogo de series</a>
+         <script src="/ProyectoFinal/javascript/series.js"></script>
     </body>
 </html>

@@ -24,7 +24,7 @@ import modelo.servicios.ServicioSeries;
  *
  * @author carlos
  */
-@WebServlet(name = "ControladorCrearComentarioSerie", urlPatterns = {"/ControladorCrearComentarioSerie"})
+@WebServlet(name = "ControladorCrearComentarioSerie", urlPatterns = {"/usuario/ControladorCrearComentarioSerie"})
 public class ControladorCrearComentarioSerie extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href="${pageContext.request.contextPath}/ControladorMostrarSerieMeGusta">Ver mis series favoritas</a>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorMostrarSerieMeGusta">Ver mis series favoritas</a>
         <c:forEach var="series" items="${series}">
             <table border="1">
                 <tr>
@@ -28,7 +28,7 @@
                     <td>${series.temporadas}</td>
                     <td>${series.genero}</td>
                     <td>${series.ano}</td>
-                    <td><a href="${pageContext.request.contextPath}/ControladorMostrarSerieIndividual?id=${series.id}">Ver serie</a></td>
+                    <td><a href="${pageContext.request.contextPath}/usuario/ControladorMostrarSerieIndividual?id=${series.id}">Ver serie</a></td>
                 </tr>
             </table>
         </c:forEach>
@@ -37,6 +37,6 @@
             <div class="error">${error}</div>
         </c:if>
             
-        <a href="${pageContext.request.contextPath}/ControladorSerie">Volver al menú</a>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorSerie">Volver al menú</a>
     </body>
 </html>

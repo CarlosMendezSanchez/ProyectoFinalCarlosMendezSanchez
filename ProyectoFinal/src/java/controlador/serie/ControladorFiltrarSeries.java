@@ -22,7 +22,7 @@ import modelo.servicios.ServicioSeries;
  *
  * @author carlos
  */
-@WebServlet(name = "ControladorFiltrarSeries", urlPatterns = {"/ControladorFiltrarSeries"})
+@WebServlet(name = "ControladorFiltrarSeries", urlPatterns = {"/usuario/ControladorFiltrarSeries"})
 public class ControladorFiltrarSeries extends HttpServlet {
 
     /**

@@ -37,11 +37,11 @@
             </ul>
         </c:forEach>
         <br>
-        <a href="${pageContext.request.contextPath}/ControladorCrearComentarioSerie?idS=${series.id}">Añadir comentario</a>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorCrearComentarioSerie?idS=${series.id}">Añadir comentario</a>
         <br>
         <c:if test="${not empty error}">
             <div class="error">${error}</div>
         </c:if>
-        <a href="${pageContext.request.contextPath}/ControladorSerie">Volver al catálogo de series</a>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorSerie">Volver al catálogo de series</a>
     </body>
 </html>

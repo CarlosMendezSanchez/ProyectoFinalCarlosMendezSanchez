@@ -2,7 +2,7 @@ $(document).ready(function() {
     let peliculas = [];
 
     // Obtener las películas desde el JSON
-    $.getJSON("json/peliculas.json", function(data) {
+    $.getJSON("/ProyectoFinal/json/peliculas.json", function(data) {
         peliculas = data.peliculas;
         actualizarTabla(peliculas);
     });

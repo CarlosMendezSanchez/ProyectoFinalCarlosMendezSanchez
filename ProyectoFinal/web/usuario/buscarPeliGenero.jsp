@@ -35,7 +35,7 @@
             </thead>
             <tbody></tbody>
           </table>
-        <a href="${pageContext.request.contextPath}/ControladorPelicula">Volver al catálogo de películas</a>
-        <script src="javascript/peliculas.js"></script>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorPelicula">Volver al catálogo de películas</a>
+        <script src="/ProyectoFinal/javascript/peliculas.js"></script>
     </body>
 </html>

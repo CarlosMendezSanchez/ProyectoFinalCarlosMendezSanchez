@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href="${pageContext.request.contextPath}/ControladorMostrarPeliculaMeGusta">Ver mis películas favoritas</a>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorMostrarPeliculaMeGusta">Ver mis películas favoritas</a>
         <c:forEach var="peliculas" items="${peliculas}">
             <table border="1">
                 <tr>
@@ -29,7 +29,7 @@
                     <td>${peliculas.duracion}</td>
                     <td>${peliculas.genero}</td>
                     <td>${peliculas.ano}</td>
-                    <td><a href="${pageContext.request.contextPath}/ControladorMostrarPeliculaIndividual?id=${peliculas.id}">Ver peli</a></td>
+                    <td><a href="${pageContext.request.contextPath}/usuario/ControladorMostrarPeliculaIndividual?id=${peliculas.id}">Ver peli</a></td>
                 </tr>
             </table>
         </c:forEach>
@@ -38,6 +38,6 @@
             <div class="error">${error}</div>
         </c:if>
             
-        <a href="${pageContext.request.contextPath}/ControladorPelicula">Volver al catálogo de películas</a>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorPelicula">Volver al catálogo de películas</a>
     </body>
 </html>

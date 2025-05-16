@@ -2,7 +2,7 @@ $(document).ready(function() {
     let series = [];
 
     // Obtener las series desde el JSON
-    $.getJSON("json/series.json", function(data) {
+    $.getJSON("/ProyectoFinal/json/series.json", function(data) {
         series = data.series;
         actualizarTabla(series);
     });
