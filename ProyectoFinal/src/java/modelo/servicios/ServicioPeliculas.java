@@ -48,6 +48,19 @@ public class ServicioPeliculas implements Serializable {
             }
         }
     }
+    
+    public void edit(Peliculas pelicula) {
+    EntityManager em = getEntityManager();
+    try {
+        em.getTransaction().begin();
+        em.merge(pelicula);  // Actualiza los datos
+        em.getTransaction().commit();
+    } finally {
+        if (em != null) {
+            em.close();
+        }
+    }
+}
 
     public void destroy(Long id) throws NonexistentEntityException {
         EntityManager em = null;

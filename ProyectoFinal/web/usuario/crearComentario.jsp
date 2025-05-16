@@ -19,5 +19,6 @@
             
             <button type="submit">Añadir comentario</button>
         </form>
+        <a href="${pageContext.request.contextPath}/usuario/ControladorInicio">Volver al menú</a>
     </body>
 </html>

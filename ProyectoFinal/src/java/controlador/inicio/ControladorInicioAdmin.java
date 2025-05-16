@@ -14,7 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.entidades.Peliculas;
 import modelo.entidades.Usuario;
+import modelo.servicios.ServicioPeliculas;
 import modelo.servicios.ServicioUsuario;
 
 /**
@@ -38,9 +40,12 @@ public class ControladorInicioAdmin extends HttpServlet {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
         // Instanciar el servicio de usuario y obtener la lista de usuarios de la base de datos.
         ServicioUsuario svu = new ServicioUsuario(emf);
+        ServicioPeliculas sp = new ServicioPeliculas(emf);
         List<Usuario> usuario = svu.findUsuarioEntities();
+        List<Peliculas> peliculas = sp.findPeliculasEntities();
         // Agregar la lista mediante atributos para el archivo jsp.
         request.setAttribute("usuarios", usuario);
+        request.setAttribute("peliculas", peliculas);
         String accion = request.getParameter("accion");
         
         String error = "";
@@ -81,6 +86,24 @@ public class ControladorInicioAdmin extends HttpServlet {
             request.setAttribute("error", "No se puede eliminar el usuario");
         }
         
+        try {
+            /*
+            * Si el parametro de accion es igual a eliminar, obtiene el id del usuario
+            * Comprueba que el usuario tenga o no experiencias para eliminar al usuario, si tiene, no lo elimina
+            * Agraga como atributo la lista de usuarios actualizada y redirige al jsp /admin/inicio.jsp
+            */
+            if ("eliminarPeli".equals(accion)) {  
+                Long id = Long.parseLong(request.getParameter("idPelis"));
+                Peliculas peliculaEliminar = sp.findPeliculas(id);
+                sp.destroy(id);
+                peliculas = sp.findPeliculasEntities();
+                request.setAttribute("peliculas", peliculas);   
+                emf.close();
+                getServletContext().getRequestDispatcher("/admin/inicio.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            request.setAttribute("error", "No se puede eliminar la peli");
+        }
         
         getServletContext().getRequestDispatcher("/admin/inicio.jsp").forward(request, response);
     }

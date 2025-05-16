@@ -40,6 +40,41 @@
                 </tr>
             </c:forEach >
     </table>
+    <br>
+    <a href="${pageContext.request.contextPath}/admin/ControladorCrearPeli">Subir peli</a>
+    
+    <h2>Lista de películas</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Imagen</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Duracion</th>
+            <th>Genero</th>
+            <th>Año</th>
+            <th>Acciones</th>
+            
+            <%-- 
+            Iterar sobre la lista de usuarios, el controlador pasa la lista de usuarios al jsp utilizando
+            items="${usuarios} como atributo"
+            --%>
+            <c:forEach var="peliculas" items="${peliculas}">
+                <tr>
+                    <td>${peliculas.id}</td>
+                    <td>${peliculas.imagen}</td>
+                    <td>${peliculas.titulo}</td>
+                    <td>${peliculas.descripcion}</td>
+                    <td>${peliculas.duracion}</td>
+                    <td>${peliculas.genero}</td>
+                    <td>${peliculas.ano}</td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/admin/ControladorEditarPelicula?idPelis=${peliculas.id}&accion=editarPeli">Editar</a> 
+                        <a href="${pageContext.request.contextPath}/admin/ControladorInicioAdmin?idPelis=${peliculas.id}&accion=eliminarPeli">Eliminar</a>
+                    </td>
+                </tr>
+            </c:forEach >
+    </table>
     <a href="${pageContext.request.contextPath}/ControladorLogin">Volver al inicio de sesion</a>
     <br>
     <%-- Condicional en el que si hay un error, se muestra en un div el tipo de error que contenga la variable--%>

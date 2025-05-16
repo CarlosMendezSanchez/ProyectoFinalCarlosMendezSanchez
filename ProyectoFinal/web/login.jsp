@@ -10,10 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.css">
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Inicio de Sesión</h1>
+        <h1 class="text-success text-center">Inicio de Sesión</h1>
         <br>
         <form method="post" id="formularioLogin">
             <label>e-mail</label>
@@ -30,5 +31,6 @@
         </form>
         <a href="${pageContext.request.contextPath}/ControladorRegistro">Registrarse</a>
         <script src="javascript/formularioLogin.js"></script>
+        <script src="resources/bootstrap/js/bootstrap.js"></script>
     </body>
 </html>

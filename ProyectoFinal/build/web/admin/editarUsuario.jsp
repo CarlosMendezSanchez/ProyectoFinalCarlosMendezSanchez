@@ -27,6 +27,6 @@
         <input type="submit" value="Guardar cambios">
         
         <a href="${pageContext.request.contextPath}/admin/ControladorInicioAdmin">Volver a inicio</a>
-    </form>
+        </form>
     </body>
 </html>
