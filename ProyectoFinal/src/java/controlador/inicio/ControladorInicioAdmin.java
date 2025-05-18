@@ -4,6 +4,7 @@
  */
 package controlador.inicio;
 
+import cifrar.Cifrar;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -15,8 +16,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.entidades.Peliculas;
+import modelo.entidades.Series;
 import modelo.entidades.Usuario;
 import modelo.servicios.ServicioPeliculas;
+import modelo.servicios.ServicioSeries;
 import modelo.servicios.ServicioUsuario;
 
 /**
@@ -41,11 +44,14 @@ public class ControladorInicioAdmin extends HttpServlet {
         // Instanciar el servicio de usuario y obtener la lista de usuarios de la base de datos.
         ServicioUsuario svu = new ServicioUsuario(emf);
         ServicioPeliculas sp = new ServicioPeliculas(emf);
+        ServicioSeries ss = new ServicioSeries(emf);
         List<Usuario> usuario = svu.findUsuarioEntities();
         List<Peliculas> peliculas = sp.findPeliculasEntities();
+        List<Series> series = ss.findSeriesEntities();
         // Agregar la lista mediante atributos para el archivo jsp.
         request.setAttribute("usuarios", usuario);
         request.setAttribute("peliculas", peliculas);
+        request.setAttribute("series", series);
         String accion = request.getParameter("accion");
         
         String error = "";
@@ -105,6 +111,25 @@ public class ControladorInicioAdmin extends HttpServlet {
             request.setAttribute("error", "No se puede eliminar la peli");
         }
         
+        try {
+            /*
+            * Si el parametro de accion es igual a eliminar, obtiene el id del usuario
+            * Comprueba que el usuario tenga o no experiencias para eliminar al usuario, si tiene, no lo elimina
+            * Agraga como atributo la lista de usuarios actualizada y redirige al jsp /admin/inicio.jsp
+            */
+            if ("eliminarSerie".equals(accion)) {  
+                Long id = Long.parseLong(request.getParameter("idSerie"));
+                Series serieEliminar = ss.findSeries(id);
+                ss.destroy(id);
+                series = ss.findSeriesEntities();
+                request.setAttribute("series", series);   
+                emf.close();
+                getServletContext().getRequestDispatcher("/admin/inicio.jsp").forward(request, response);
+            }
+        } catch (Exception e) {
+            request.setAttribute("error", "No se puede eliminar la serie");
+        }
+        
         getServletContext().getRequestDispatcher("/admin/inicio.jsp").forward(request, response);
     }
 
@@ -136,10 +161,12 @@ public class ControladorInicioAdmin extends HttpServlet {
     if (usuario != null) {
         usuario.setEmail(email);
         usuario.setNombre(nombre);
-        usuario.setPassword(password);
         usuario.setApellidos(apellido);
 
         try {
+            // Cifrar la contraseña antes de guardarla
+            String passwordCifrada = Cifrar.codificar(password);
+            usuario.setPassword(passwordCifrada);
             // Guarda los cambios de la edicion en la base de datos
             servicioUsuario.edit(usuario);
             

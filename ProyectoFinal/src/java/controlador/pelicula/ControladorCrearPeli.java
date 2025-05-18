@@ -65,6 +65,7 @@ public class ControladorCrearPeli extends HttpServlet {
         String genero = request.getParameter("genero");
         String ano = request.getParameter("ano");
         String imagen = request.getParameter("imagen");
+        String imagenHorizontal = request.getParameter("imagenHorizontal");
         int duracion = Integer.parseInt(request.getParameter("duracion"));
         
         Peliculas pelicula = new Peliculas();
@@ -74,6 +75,7 @@ public class ControladorCrearPeli extends HttpServlet {
         pelicula.setGenero(genero);
         pelicula.setAno(ano);
         pelicula.setImagen(imagen);
+        pelicula.setImagenHorizontal(imagenHorizontal);
 
         sp.create(pelicula);
         emf.close();

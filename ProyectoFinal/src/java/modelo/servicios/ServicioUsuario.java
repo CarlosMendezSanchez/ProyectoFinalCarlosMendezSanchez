@@ -1,5 +1,6 @@
 package modelo.servicios;
 
+import cifrar.Cifrar;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -137,15 +138,17 @@ public class ServicioUsuario implements Serializable {
     }
 
     public Usuario validarUsuario(String email, String password) {
-        List<Usuario> usuarios = findUsuarioEntities();
-        for (Usuario u : usuarios) {
-            if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
-                return u;
-            }
+    try {
+        String passwordCifrada = Cifrar.codificar(password);
+        Usuario usuario = obtenerUsuarioPorEmail(email);
+        if (usuario != null && usuario.getPassword().equals(passwordCifrada)) {
+            return usuario;
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
     }
-        return null;
-    
-    }
+    return null;
+}
     
     public Usuario obtenerUsuarioPorEmail(String email) {
     EntityManager em = getEntityManager();

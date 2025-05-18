@@ -1,5 +1,104 @@
-/* Estilos de los mensajes de error */
+body {
+    font-family: 'Lexend';
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
 .error {
     color: #e74c3c;
     display: none;
+}
+
+.arriba {
+    padding-top: 1em;
+}
+
+.arriba-tabla  {
+    padding-top: 3em;
+}
+
+.abajo-tabla {
+    padding-bottom: 3em;
+}
+
+.espaciado-derecha {
+    margin-right: 1em;
+}
+
+.espaciado-izquierda {
+    margin-left: 1em;
+}
+
+.abajo-arriba {
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.abajo-espacio {
+    margin-bottom: 1.5em;
+}
+
+.centro-login {
+    margin-left: 31rem;
+}
+
+.centro-comienzo  {
+    margin-left: 35rem;
+}
+
+.centro-registro {
+    margin-left: 29rem;
+}
+
+.anchura {
+    width: 350px;
+}
+
+.tercera-opcion-cabecera  {
+    margin-left: 18rem;
+}
+
+.color-fondo {
+    background-color: #1E1E1E;
+}
+
+.color-fondo-formulario {
+    background-color: #2C2C2C;
+}
+
+.color-fondo-footer  {
+    background-color: #262626;
+}
+
+.boton-fondo {
+    background-color: #383838;
+}
+
+.campo-fondo {
+    background-color: #2C2C2C;
+    border: none;
+    border-bottom: 2px solid #F49F1C;
+    border-radius: 0;
+    color: white;
+    padding: 10px;
+    box-shadow: none;
+}
+
+.campo-fondo:focus {
+    background-color: #2C2C2C;
+    color: white;
+    border-bottom: 2px solid #F49F1C;
+    outline: none;
+    box-shadow: none;
+}
+
+.borde-debajo {
+    border-bottom: 2px solid #F49F1C;
+}
+
+table td, table th {
+    padding: 1rem 3rem;
 }

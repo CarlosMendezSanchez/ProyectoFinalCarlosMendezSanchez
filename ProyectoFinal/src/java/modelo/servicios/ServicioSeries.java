@@ -49,6 +49,19 @@ public class ServicioSeries implements Serializable {
             }
         }
     }
+    
+    public void edit(Series serie) {
+        EntityManager em = getEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.merge(serie); // Actualiza la serie con los nuevos datos
+            em.getTransaction().commit();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+    }
 
     public void destroy(Long id) throws NonexistentEntityException {
         EntityManager em = null;

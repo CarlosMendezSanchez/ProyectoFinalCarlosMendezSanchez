@@ -33,6 +33,8 @@ public class Series implements Serializable, Comparable<Series> {
     private int temporadas;
     @Column(length = 255, nullable = false)
     private String imagen;
+    @Column(length = 255, nullable = false)
+    private String imagenHorizontal;
     
     public Long getId() {
         return id;
@@ -88,6 +90,14 @@ public class Series implements Serializable, Comparable<Series> {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public String getImagenHorizontal() {
+        return imagenHorizontal;
+    }
+
+    public void setImagenHorizontal(String imagenHorizontal) {
+        this.imagenHorizontal = imagenHorizontal;
     }
 
     @Override

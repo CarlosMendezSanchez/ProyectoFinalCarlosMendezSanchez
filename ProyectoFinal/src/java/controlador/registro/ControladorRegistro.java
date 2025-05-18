@@ -4,6 +4,7 @@
  */
 package controlador.registro;
 
+import static cifrar.Cifrar.codificar;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.persistence.EntityManagerFactory;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.entidades.Usuario;
 import modelo.servicios.ServicioUsuario;
+import cifrar.Cifrar;
 
 /**
  *
@@ -72,7 +74,13 @@ public class ControladorRegistro extends HttpServlet {
                 // Crear objeto nuevoUsuario con los datos proporcionados por el formulario
                 Usuario nuevoUsuario = new Usuario();
                 nuevoUsuario.setEmail(email);
-                nuevoUsuario.setPassword(password);
+                try {
+                    String passwordCifrada = Cifrar.codificar(password);
+                    nuevoUsuario.setPassword(passwordCifrada);
+                } catch (Exception e) {
+                    error = "Error al cifrar la contraseña.";
+                    return;
+                }
                 nuevoUsuario.setNombre(nombre);
                 nuevoUsuario.setApellidos(apellidos);
                 nuevoUsuario.setTipo(tipo);    
