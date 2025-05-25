@@ -8,7 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/bootstrap.css">
         <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../css/estilos.css">
@@ -16,31 +17,35 @@
         <title>JSP Page</title>
     </head>
     <body class="justify-content-center align-items-center color-fondo">
-      <header class="d-flex flex-row text-center p-2 color-fondo-formulario">
-            <div class="justify-content-center align-items-center">
-                <img class="logo" src="../img/general/Logo.png" alt="logo">
+        <header class="color-fondo-formulario">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto d-flex align-items-center">
+                        <img class="logo" src="../img/general/Logo.png" alt="logo">
+                    </div>
+                    <div class="d-flex col justify-content-end">
+                        <h1 class="text-white">Listado de Películas</h1>
+                    </div>
+                </div>
             </div>
-            <div class="centro-registro arriba">
-                <h1 class="text-white">Listado de Películas</h1>
-            </div>
-        </header> 
+        </header>
 
         <div class="d-flex justify-content-center align-items-center mt-4">
-          <div class="card p-4 text-white text-center shadow-lg rounded-4 color-fondo-formulario">
-              <label for="generoSelect" class="form-label fw-bold mb-2">Filtrar por género:</label>
-              <select id="generoSelect" class="form-select w-auto mx-auto">
-                  <option value="todos">Todos</option>
-                  <option value="Ciencia ficción">Ciencia ficción</option>
-                  <option value="Drama">Drama</option>
-                  <option value="Thriller">Thriller</option>
-                  <option value="Crimen">Crimen</option>
-              </select>
-          </div>
+            <div class="card p-4 text-white text-center shadow-lg rounded-4 color-fondo-formulario">
+                <label for="generoSelect" class="form-label fw-bold mb-2">Filtrar por género:</label>
+                <select id="generoSelect" class="form-select w-auto mx-auto">
+                    <option value="todos">Todos</option>
+                    <option value="Ciencia ficción">Ciencia ficción</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Crimen">Crimen</option>
+                </select>
+            </div>
         </div>
         
         <div class="m-5 text-white text-center rounded-4 color-fondo-formulario arriba-tabla abajo-tabla">
             <h2>Películas por género</h2>
-            <div class="d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center align-items-center table-responsive">
                 <table id="tablaPeliculas" class="w-75 text-white">
                     <thead>
                         <tr>

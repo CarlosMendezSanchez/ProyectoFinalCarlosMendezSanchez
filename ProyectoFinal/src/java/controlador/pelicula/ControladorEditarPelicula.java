@@ -61,7 +61,7 @@ public class ControladorEditarPelicula extends HttpServlet {
             request.setAttribute("error", "No se puede editar peliculas");
         }
         
-        getServletContext().getRequestDispatcher("/admin/inicio.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/admin/inicioPeli.jsp").forward(request, response);
     }
 
     /**

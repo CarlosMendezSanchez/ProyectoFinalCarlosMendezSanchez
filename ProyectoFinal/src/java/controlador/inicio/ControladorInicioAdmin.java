@@ -43,15 +43,9 @@ public class ControladorInicioAdmin extends HttpServlet {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
         // Instanciar el servicio de usuario y obtener la lista de usuarios de la base de datos.
         ServicioUsuario svu = new ServicioUsuario(emf);
-        ServicioPeliculas sp = new ServicioPeliculas(emf);
-        ServicioSeries ss = new ServicioSeries(emf);
         List<Usuario> usuario = svu.findUsuarioEntities();
-        List<Peliculas> peliculas = sp.findPeliculasEntities();
-        List<Series> series = ss.findSeriesEntities();
         // Agregar la lista mediante atributos para el archivo jsp.
         request.setAttribute("usuarios", usuario);
-        request.setAttribute("peliculas", peliculas);
-        request.setAttribute("series", series);
         String accion = request.getParameter("accion");
         
         String error = "";
@@ -90,44 +84,6 @@ public class ControladorInicioAdmin extends HttpServlet {
             }
         } catch (Exception e) {
             request.setAttribute("error", "No se puede eliminar el usuario");
-        }
-        
-        try {
-            /*
-            * Si el parametro de accion es igual a eliminar, obtiene el id del usuario
-            * Comprueba que el usuario tenga o no experiencias para eliminar al usuario, si tiene, no lo elimina
-            * Agraga como atributo la lista de usuarios actualizada y redirige al jsp /admin/inicio.jsp
-            */
-            if ("eliminarPeli".equals(accion)) {  
-                Long id = Long.parseLong(request.getParameter("idPelis"));
-                Peliculas peliculaEliminar = sp.findPeliculas(id);
-                sp.destroy(id);
-                peliculas = sp.findPeliculasEntities();
-                request.setAttribute("peliculas", peliculas);   
-                emf.close();
-                getServletContext().getRequestDispatcher("/admin/inicio.jsp").forward(request, response);
-            }
-        } catch (Exception e) {
-            request.setAttribute("error", "No se puede eliminar la peli");
-        }
-        
-        try {
-            /*
-            * Si el parametro de accion es igual a eliminar, obtiene el id del usuario
-            * Comprueba que el usuario tenga o no experiencias para eliminar al usuario, si tiene, no lo elimina
-            * Agraga como atributo la lista de usuarios actualizada y redirige al jsp /admin/inicio.jsp
-            */
-            if ("eliminarSerie".equals(accion)) {  
-                Long id = Long.parseLong(request.getParameter("idSerie"));
-                Series serieEliminar = ss.findSeries(id);
-                ss.destroy(id);
-                series = ss.findSeriesEntities();
-                request.setAttribute("series", series);   
-                emf.close();
-                getServletContext().getRequestDispatcher("/admin/inicio.jsp").forward(request, response);
-            }
-        } catch (Exception e) {
-            request.setAttribute("error", "No se puede eliminar la serie");
         }
         
         getServletContext().getRequestDispatcher("/admin/inicio.jsp").forward(request, response);

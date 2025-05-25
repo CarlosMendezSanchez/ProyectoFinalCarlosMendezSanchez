@@ -8,43 +8,52 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/bootstrap.css">
         <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../css/estilos.css">
         <title>JSP Page</title>
     </head>
     <body class="justify-content-center align-items-center color-fondo">
-        <header class="d-flex flex-row text-center p-2 color-fondo-formulario">
-            <div class="justify-content-center align-items-center">
-                <img class="logo" src="../img/general/Logo.png" alt="logo">
+        <header class="color-fondo-formulario">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto d-flex align-items-center">
+                        <img class="logo" src="../img/general/Logo.png" alt="logo">
+                    </div>
+                    <div class="d-flex col justify-content-end">
+                        <h1 class="text-white">Editar Usuario</h1>
+                    </div>
+                </div>
             </div>
-            <div class="centro-login arriba">
-                <h1 class="text-white">Editar usuario</h1>
-            </div>
-        </header> 
+        </header>
 
         <div class="d-flex justify-content-center align-items-center vh-100">
             <div class="card p-4 text-white shadow-lg rounded-4 anchura color-fondo-formulario">
-                    <form method="post">
+                    <form method="post" id="formularioEditarUsuario">
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Email</label>
-                            <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="email" name="email" value="${usuariosLista.email}" required>
+                            <label for="email" class="form-label fw-bold">Email</label>
+                            <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="email" id="email" name="email" value="${usuariosLista.email}">
+                            <span class="error" id="error-correo">Introduzca un correo válido.</span>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Nombre</label>
-                            <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" name="nombre" value="${usuariosLista.nombre}" required>
+                            <label for="nombre" class="form-label fw-bold">Nombre</label>
+                            <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" id="nombre" name="nombre" value="${usuariosLista.nombre}">
+                            <span class="error" id="error-nombre">Introduzca un nombre válido.</span>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Apellido</label>
-                            <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" name="apellido" value="${usuariosLista.apellidos}" required>
+                            <label for="apellido" class="form-label fw-bold">Apellido</label>
+                            <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" id="apellido" name="apellido" value="${usuariosLista.apellidos}">
+                            <span class="error" id="error-apellidos">Introduzca apellidos válidos.</span>
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label fw-bold">Contraseña</label>
-                            <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="password" name="password" value="${usuariosLista.password}" required>
+                            <label for="password" class="form-label fw-bold">Contraseña</label>
+                            <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="password" id="password" name="password" value="${usuariosLista.password}">
+                            <span class="error" id="error-password">Introduzca una contraseña válida (entre 8 y 16 caracteres).</span>
                         </div>
 
                         <div class="d-flex justify-content-center align-items-center">
@@ -86,6 +95,7 @@
                 <p class="text-warning fw-bold">Copyright © 2025 Carlos Méndez Sánchez</p>
             </div>
         </footer>
+        <script src="../javascript/formularioEditarUsuario.js"></script>
         <script src="../resources/bootstrap/js/bootstrap.js"></script>
     </body>
 </html>

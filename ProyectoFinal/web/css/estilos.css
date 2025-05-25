@@ -13,7 +13,7 @@ body {
 }
 
 .arriba {
-    padding-top: 1em;
+    padding-top: 1.5em;
 }
 
 .arriba-tabla  {
@@ -42,11 +42,11 @@ body {
 }
 
 .centro-login {
-    margin-left: 31rem;
+    margin-left: 65em;
 }
 
 .centro-comienzo  {
-    margin-left: 35rem;
+    margin-left: 31rem;
 }
 
 .centro-registro {
@@ -59,6 +59,10 @@ body {
 
 .tercera-opcion-cabecera  {
     margin-left: 18rem;
+}
+
+.tercera-opcion-cabecera-usuario {
+    margin-left: 28rem;
 }
 
 .color-fondo {
@@ -101,4 +105,105 @@ body {
 
 table td, table th {
     padding: 1rem 3rem;
+}
+
+table tr {
+    border-bottom: 2px solid #F49F1C;
+}
+
+.im-ampliacion-hover-zoom {
+    transition: transform 0.3s ease;
+}
+
+.im-ampliacion-hover-zoom:hover {
+    transform: scale(1.05);
+}
+
+.boton-ver-peli {
+    color: #ffc107;
+    border: 2px solid #ffc107;
+    background-color: transparent;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.boton-ver-peli:hover {
+    background-color: #ffc107;
+    color: black;
+}
+
+.imagen-destacada {
+    height: 300px;
+    background-color: #111;
+}
+
+.imagen-zoom {
+    transition: transform 0.4s ease;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.imagen-destacada:hover .imagen-zoom {
+    transform: scale(1.1);
+}
+
+.tabla-compacta {
+    width: 85%;
+    margin: 0 auto;
+    font-size: 0.9rem;
+}
+
+.tabla-compacta td,
+.tabla-compacta th {
+    padding: 0.5rem;
+    vertical-align: middle;
+    word-break: break-word;
+}
+
+.tabla-compacta td:nth-child(3),
+.tabla-compacta td:nth-child(4) {
+    max-width: 220px;
+}
+
+.margen {
+    margin: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .tabla-card thead {
+        display: none;
+    }
+
+    .tabla-card, 
+    .tabla-card tbody, 
+    .tabla-card tr, 
+    .tabla-card td {
+        display: block;
+        width: 100%;
+    }
+
+    .tabla-card tr {
+        margin-bottom: 1rem;
+        background-color: #2b2b2b;
+        border: 2px solid #ffc107;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .tabla-card td {
+        text-align: left;
+        padding: 0.5rem;
+        position: relative;
+    }
+
+    .ancho{
+        width: 100%;
+    }
+
+    .margen {
+        margin: 1rem 0rem 1rem 0rem;
+    }
+
 }

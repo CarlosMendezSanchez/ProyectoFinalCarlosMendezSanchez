@@ -62,7 +62,7 @@ public class ControladorEditarSerie extends HttpServlet {
             request.setAttribute("error", "No se puede editar series");
         }
         
-        getServletContext().getRequestDispatcher("/admin/inicio.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/admin/inicioSerie.jsp").forward(request, response);
     }
 
     /**

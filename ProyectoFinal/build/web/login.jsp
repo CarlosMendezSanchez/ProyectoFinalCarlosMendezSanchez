@@ -8,21 +8,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="resources/bootstrap/css/bootstrap.css">
         <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/estilos.css">
         <title>JSP Page</title>
     </head>
     <body class="justify-content-center align-items-center color-fondo">
-        <header class="d-flex flex-row text-center p-2 color-fondo-formulario">
-            <div class="justify-content-center align-items-center">
-                <img class="logo" src="img/general/Logo.png" alt="logo">
+        <header class="color-fondo-formulario">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-auto d-flex align-items-center">
+                        <img class="logo" src="img/general/Logo.png" alt="logo">
+                    </div>
+                    <div class="d-flex col justify-content-end">
+                        <h1 class="text-white">Inicio de sesión</h1>
+                    </div>
+                </div>
             </div>
-            <div class="centro-login arriba">
-                <h1 class="text-white">Inicio de Sesión</h1>
-            </div>
-        </header> 
+        </header>
         <div class="d-flex justify-content-center align-items-center vh-100">
             <div class="card p-4 text-white shadow-lg rounded-4 anchura color-fondo-formulario">
                 <form method="post" id="formularioLogin">
@@ -43,7 +48,7 @@
                     </div>
                 </form>
                 <div class="text-center mt-3">
-                <a class="text-warning small" href="${pageContext.request.contextPath}/ControladorRegistro">Registrarse</a>
+                <a class="text-warning small" href="${pageContext.request.contextPath}/ControladorRegistro">¿No tienes cuenta? Regístrate</a>
                 </div>
             </div>
         </div>
