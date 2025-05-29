@@ -53,10 +53,10 @@ public class ControladorInicioAdminSeries extends HttpServlet {
             */
             if ("eliminarSerie".equals(accion)) {  
                 Long id = Long.parseLong(request.getParameter("idSerie"));
-                Series serieEliminar = ss.findSeries(id);
-                ss.destroy(id);
+                ss.eliminarSerieConRelaciones(id);
+
                 series = ss.findSeriesEntities();
-                request.setAttribute("series", series);   
+                request.setAttribute("series", series); 
                 emf.close();
                 getServletContext().getRequestDispatcher("/admin/inicioSerie.jsp").forward(request, response);
             }

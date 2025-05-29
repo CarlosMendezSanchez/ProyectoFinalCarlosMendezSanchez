@@ -132,16 +132,41 @@ public class ServicioSeries implements Serializable {
     
     // Metodo para buscar experiencias entre 2 fechas
     public List<Series> findSeriesByFecha(Date fechaInicio, Date fechaFin) {
-    EntityManager em = getEntityManager();
-    try {
-    // Crea una consulta para seleccionar todas las entidades Peliculas, en el que la fecha de inicio se encuentra entre las 2 fechas asignadas    
-        return em.createQuery("SELECT s FROM Series s WHERE s.fechaInicio BETWEEN :inicio AND :fin", Series.class)
-                .setParameter("inicio", fechaInicio)
-                .setParameter("fin", fechaFin)
-                .getResultList();
-    } finally {
-        em.close();
+        EntityManager em = getEntityManager();
+        try {
+        // Crea una consulta para seleccionar todas las entidades Peliculas, en el que la fecha de inicio se encuentra entre las 2 fechas asignadas    
+            return em.createQuery("SELECT s FROM Series s WHERE s.fechaInicio BETWEEN :inicio AND :fin", Series.class)
+                    .setParameter("inicio", fechaInicio)
+                    .setParameter("fin", fechaFin)
+                    .getResultList();
+        } finally {
+            em.close();
+        }
     }
-}
+    
+    public void eliminarSerieConRelaciones(Long idSerie) throws Exception {
+        EntityManager em = getEntityManager();
+        try {
+            em.getTransaction().begin();
+
+            em.createNativeQuery("DELETE FROM COMENTARIOS WHERE SERIES_ID = ?")
+                .setParameter(1, idSerie)
+                .executeUpdate();
+
+            em.createNativeQuery("DELETE FROM me_gusta_series WHERE id_serie = ?")
+                .setParameter(1, idSerie)
+                .executeUpdate();
+
+            Series serie = em.getReference(Series.class, idSerie);
+            em.remove(serie);
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            throw e;
+        } finally {
+            em.close();
+        }
+    }
     
 }

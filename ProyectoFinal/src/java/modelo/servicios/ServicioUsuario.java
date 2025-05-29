@@ -175,4 +175,35 @@ public class ServicioUsuario implements Serializable {
         }
     }
     
+    public void eliminarUsuarioConRelaciones(Long id) throws Exception {
+        EntityManager em = getEntityManager();
+        try {
+            em.getTransaction().begin();
+
+            // Eliminar dependencias
+            em.createNativeQuery("DELETE FROM me_gusta_peliculas WHERE id_usuario = ?")
+                .setParameter(1, id)
+                .executeUpdate();
+
+            em.createNativeQuery("DELETE FROM me_gusta_series WHERE id_usuario = ?")
+                .setParameter(1, id)
+                .executeUpdate();
+
+            em.createNativeQuery("DELETE FROM COMENTARIOS WHERE USUARIO_ID = ?")
+                .setParameter(1, id)
+                .executeUpdate();
+
+            // Eliminar usuario
+            Usuario usuario = em.getReference(Usuario.class, id);
+            em.remove(usuario);
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            throw e;
+        } finally {
+            em.close();
+        }
+    }
+    
 }

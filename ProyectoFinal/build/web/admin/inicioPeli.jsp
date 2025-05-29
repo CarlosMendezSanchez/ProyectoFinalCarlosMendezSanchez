@@ -24,7 +24,7 @@
                         <h1 class="text-white">Cineman</h1>
                     </div>
                     <div class="d-flex col text-white justify-content-end">
-                        <h1>Bienvenido ${usuario.nombre}</h1> 
+                        <h1>Hola ${usuario.nombre}</h1> 
                     </div>
                 </div>
             </div>
@@ -35,7 +35,6 @@
                 <div class="d-flex justify-content-center align-items-center">
                     <table class="tabla-compacta">
                     <tr>
-                        <th>ID</th>
                         <th>Imagen</th>
                         <th>Titulo</th>
                         <th>Descripcion</th>
@@ -50,7 +49,6 @@
                         --%>
                         <c:forEach var="peliculas" items="${peliculas}">
                             <tr class="borde-debajo">
-                                <td>${peliculas.id}</td>
                                 <td>${peliculas.imagen}</td>
                                 <td>${peliculas.titulo}</td>
                                 <td>${peliculas.descripcion}</td>

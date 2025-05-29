@@ -75,10 +75,11 @@ public class ControladorInicioAdmin extends HttpServlet {
             */
             if ("eliminar".equals(accion)) {  
                 Long id = Long.parseLong(request.getParameter("id"));
-                Usuario usuarioEliminar = svu.findUsuario(id);
-                svu.destroy(id);
+                svu.eliminarUsuarioConRelaciones(id);
+                
                 usuario = svu.findUsuarioEntities();
-                request.setAttribute("usuarios", usuario);   
+                request.setAttribute("usuarios", usuario);
+                request.setAttribute("mensaje", "Usuario eliminado correctamente.");
                 emf.close();
                 getServletContext().getRequestDispatcher("/admin/inicio.jsp").forward(request, response);
             }

@@ -53,10 +53,10 @@ public class ControladorInicioAdminPelis extends HttpServlet {
             */
             if ("eliminarPeli".equals(accion)) {  
                 Long id = Long.parseLong(request.getParameter("idPelis"));
-                Peliculas peliculaEliminar = sp.findPeliculas(id);
-                sp.destroy(id);
+                sp.eliminarPeliculaConRelaciones(id);
+
                 peliculas = sp.findPeliculasEntities();
-                request.setAttribute("peliculas", peliculas);   
+                request.setAttribute("peliculas", peliculas);  
                 emf.close();
                 getServletContext().getRequestDispatcher("/admin/inicioPeli.jsp").forward(request, response);
             }

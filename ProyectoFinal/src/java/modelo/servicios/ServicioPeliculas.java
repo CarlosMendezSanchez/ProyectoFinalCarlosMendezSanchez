@@ -131,16 +131,41 @@ public class ServicioPeliculas implements Serializable {
     
     // Metodo para buscar experiencias entre 2 fechas
     public List<Peliculas> findPeliculasByFecha(Date fechaInicio, Date fechaFin) {
-    EntityManager em = getEntityManager();
-    try {
-    // Crea una consulta para seleccionar todas las entidades Peliculas, en el que la fecha de inicio se encuentra entre las 2 fechas asignadas    
-        return em.createQuery("SELECT p FROM Peliculas p WHERE p.fechaInicio BETWEEN :inicio AND :fin", Peliculas.class)
-                .setParameter("inicio", fechaInicio)
-                .setParameter("fin", fechaFin)
-                .getResultList();
-    } finally {
-        em.close();
+        EntityManager em = getEntityManager();
+        try {
+        // Crea una consulta para seleccionar todas las entidades Peliculas, en el que la fecha de inicio se encuentra entre las 2 fechas asignadas    
+            return em.createQuery("SELECT p FROM Peliculas p WHERE p.fechaInicio BETWEEN :inicio AND :fin", Peliculas.class)
+                    .setParameter("inicio", fechaInicio)
+                    .setParameter("fin", fechaFin)
+                    .getResultList();
+        } finally {
+            em.close();
+        }
     }
-}
+    
+    public void eliminarPeliculaConRelaciones(Long idPelicula) throws Exception {
+        EntityManager em = getEntityManager();
+        try {
+            em.getTransaction().begin();
+
+            em.createNativeQuery("DELETE FROM COMENTARIOS WHERE PELICULAS_ID = ?")
+                .setParameter(1, idPelicula)
+                .executeUpdate();
+
+            em.createNativeQuery("DELETE FROM me_gusta_peliculas WHERE id_pelicula = ?")
+                .setParameter(1, idPelicula)
+                .executeUpdate();
+
+            Peliculas pelicula = em.getReference(Peliculas.class, idPelicula);
+            em.remove(pelicula);
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            throw e;
+        } finally {
+            em.close();
+        }
+    }
     
 }

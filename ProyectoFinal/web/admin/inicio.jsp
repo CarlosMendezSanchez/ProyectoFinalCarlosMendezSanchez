@@ -24,7 +24,7 @@
                         <h1 class="text-white">Cineman</h1>
                     </div>
                     <div class="d-flex col text-white justify-content-end">
-                        <h1>Bienvenido ${usuario.nombre}</h1> 
+                        <h1>Hola ${usuario.nombre}</h1> 
                     </div>
                 </div>
             </div>
@@ -34,7 +34,6 @@
             <div class="d-flex justify-content-center align-items-center">
                 <table class="tabla-compacta">
                 <tr>
-                    <th>ID</th>
                     <th>Email</th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
@@ -46,7 +45,6 @@
                     --%>
                     <c:forEach var="usuariosLista" items="${usuarios}">
                         <tr class="borde-debajo">
-                            <td>${usuariosLista.id}</td>
                             <td>${usuariosLista.email}</td>
                             <td>${usuariosLista.nombre}</td>
                             <td>${usuariosLista.apellidos}</td>
@@ -115,6 +113,9 @@
                 <p class="text-warning fw-bold">Copyright © 2025 Carlos Méndez Sánchez</p>
             </div>
         </footer>
+            <c:if test="${not empty mensaje}">
+    <div class="alert alert-success text-center mt-3">${mensaje}</div>
+</c:if>
         <script src="../resources/bootstrap/js/bootstrap.js"></script>
     </body>
 </html>
