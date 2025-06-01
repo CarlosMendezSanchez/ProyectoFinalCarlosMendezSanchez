@@ -38,6 +38,7 @@ public class ControladorInicioAdminPelis extends HttpServlet {
             throws ServletException, IOException {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
         ServicioPeliculas sp = new ServicioPeliculas(emf);
+        // Obtiene las pelis existentes
         List<Peliculas> peliculas = sp.findPeliculasEntities();
         request.setAttribute("peliculas", peliculas);
         
@@ -47,9 +48,9 @@ public class ControladorInicioAdminPelis extends HttpServlet {
         
         try {
             /*
-            * Si el parametro de accion es igual a eliminar, obtiene el id del usuario
-            * Comprueba que el usuario tenga o no experiencias para eliminar al usuario, si tiene, no lo elimina
-            * Agraga como atributo la lista de usuarios actualizada y redirige al jsp /admin/inicio.jsp
+            * Si el parametro de accion es igual a eliminarPeli, obtiene el id de la peli
+            * Elimina todas las relaciones que tenga esa peli (me gusta, comentarios)
+            * Redirige al jsp /admin/inicioPeli.jsp
             */
             if ("eliminarPeli".equals(accion)) {  
                 Long id = Long.parseLong(request.getParameter("idPelis"));

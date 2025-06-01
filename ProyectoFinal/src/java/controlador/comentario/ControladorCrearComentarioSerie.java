@@ -67,6 +67,7 @@ public class ControladorCrearComentarioSerie extends HttpServlet {
         Long id = Long.parseLong(request.getParameter("idS"));       
         Series series = ss.findSeries(id);
         
+        // Crear objeto comentarios  y asignar los datos del formulario
         Comentarios comentarios = new Comentarios();
         comentarios.setContenido(contenido);
         comentarios.setUsuario(usuario);

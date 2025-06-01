@@ -38,6 +38,7 @@ public class ControladorEditarSerie extends HttpServlet {
             throws ServletException, IOException {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
         ServicioSeries ss = new ServicioSeries(emf);
+        // Lista las series existentes
         List<Series> series = ss.findSeriesEntities();
         
         request.setAttribute("series", series);
@@ -47,8 +48,8 @@ public class ControladorEditarSerie extends HttpServlet {
         
         try {  
             /*
-            * Si el parametro de accion es igual a editar, obtiene el id del usuario y lo busca
-            * Agrega como atributo el usuario que se va a editar y redirige al jsp /admin/editarUsuario.jsp
+            * Si el parametro de accion es igual a editarSerie, obtiene el id de la serie y lo busca
+            * Agrega como atributo la serie que se va a editar y redirige al jsp /admin/editarSerie.jsp
             */
             if ("editarSerie".equals(accion)){
                 Long id = Long.parseLong(request.getParameter("idSerie"));
@@ -79,6 +80,7 @@ public class ControladorEditarSerie extends HttpServlet {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
         ServicioSeries ss = new ServicioSeries(emf);
         
+        // Obtener los parametros del formulario de editar series
         Long id = Long.parseLong(request.getParameter("idSerie"));
         String titulo = request.getParameter("titulo");
         String descripcion = request.getParameter("descripcion");
@@ -87,6 +89,7 @@ public class ControladorEditarSerie extends HttpServlet {
         String imagen = request.getParameter("imagen");
         int temporadas = Integer.parseInt(request.getParameter("temporadas"));
         
+        // Actualizar los datos de la serie
         Series serie = ss.findSeries(id);
         serie.setTitulo(titulo);
         serie.setDescripcion(descripcion);
@@ -96,6 +99,7 @@ public class ControladorEditarSerie extends HttpServlet {
         serie.setTemporadas(temporadas);
         
         try {
+            // Editar y guardar los cambios en la base de datos
             ss.edit(serie);
         } catch (Exception e) {
             request.setAttribute("error", "Error al guardar los cambios.");
@@ -103,6 +107,7 @@ public class ControladorEditarSerie extends HttpServlet {
         }
         
         emf.close();
+        // Redirigir al jsp  /admin/editarSerie.jsp
         getServletContext().getRequestDispatcher("/admin/editarSerie.jsp").forward(request, response);
     }
 

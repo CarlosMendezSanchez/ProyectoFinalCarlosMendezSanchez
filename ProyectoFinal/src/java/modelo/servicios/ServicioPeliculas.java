@@ -143,6 +143,7 @@ public class ServicioPeliculas implements Serializable {
         }
     }
     
+    // Eliminar una pelicula junto a todos los datos relacionados con esta (sus comentarios, sus me gusta)
     public void eliminarPeliculaConRelaciones(Long idPelicula) throws Exception {
         EntityManager em = getEntityManager();
         try {

@@ -63,6 +63,7 @@ public class ControladorCrearSerie extends HttpServlet {
         ServicioSeries ss = new ServicioSeries(emf);
         List<Series> series = ss.findSeriesEntities();
         
+        // Obtener los parametros del formulario de crear series
         String titulo = request.getParameter("titulo");
         String descripcion = request.getParameter("descripcion");
         String genero = request.getParameter("genero");
@@ -71,6 +72,7 @@ public class ControladorCrearSerie extends HttpServlet {
         String imagenHorizontal = request.getParameter("imagenHorizontal");
         int temporadas = Integer.parseInt(request.getParameter("temporadas"));
         
+        // Crear objeto serie y asignar los datos del formulario
         Series serie = new Series();
         serie.setTitulo(titulo);
         serie.setDescripcion(descripcion);
@@ -80,9 +82,11 @@ public class ControladorCrearSerie extends HttpServlet {
         serie.setImagenHorizontal(imagenHorizontal);
         serie.setTemporadas(temporadas);
         
+        // Guardar en la base de datos
         ss.create(serie);
         emf.close();
         
+        // Redirigir al jsp  /admin/crearSerie.jsp
         getServletContext().getRequestDispatcher("/admin/crearSerie.jsp").forward(request, response);
     }
 

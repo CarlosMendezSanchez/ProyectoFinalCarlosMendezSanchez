@@ -38,6 +38,7 @@ public class ControladorEditarPelicula extends HttpServlet {
             throws ServletException, IOException {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
         ServicioPeliculas sp = new ServicioPeliculas(emf);
+        // Listar las pelis existentes
         List<Peliculas> peliculas = sp.findPeliculasEntities();
         request.setAttribute("peliculas", peliculas);
         String accion = request.getParameter("accion");
@@ -46,8 +47,8 @@ public class ControladorEditarPelicula extends HttpServlet {
         
         try {  
             /*
-            * Si el parametro de accion es igual a editar, obtiene el id del usuario y lo busca
-            * Agrega como atributo el usuario que se va a editar y redirige al jsp /admin/editarUsuario.jsp
+            * Si el parametro de accion es igual a editarPeli, obtiene el id de la peli y lo busca
+            * Agrega como atributo la peli que se va a editar y redirige al jsp /admin/editarPelicula.jsp
             */
             if ("editarPeli".equals(accion)){
                 Long id = Long.parseLong(request.getParameter("idPelis"));
@@ -78,6 +79,7 @@ public class ControladorEditarPelicula extends HttpServlet {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
         ServicioPeliculas sp = new ServicioPeliculas(emf);
         
+        // Obtener los parametros del formulario editar pelis
         Long id = Long.parseLong(request.getParameter("idPelis"));
         String titulo = request.getParameter("titulo");
         String descripcion = request.getParameter("descripcion");
@@ -86,6 +88,7 @@ public class ControladorEditarPelicula extends HttpServlet {
         String ano = request.getParameter("ano");
         String imagen = request.getParameter("imagen");
         
+        // Actualizar los datos de la peli
         Peliculas pelicula = sp.findPeliculas(id);
         pelicula.setTitulo(titulo);
         pelicula.setDescripcion(descripcion);
@@ -95,6 +98,7 @@ public class ControladorEditarPelicula extends HttpServlet {
         pelicula.setImagen(imagen);
         
         try {
+            // Editar y guardar los cambios en la base de datos
             sp.edit(pelicula);
         } catch (Exception e) {
             request.setAttribute("error", "Error al guardar los cambios.");
@@ -102,6 +106,7 @@ public class ControladorEditarPelicula extends HttpServlet {
         }
 
         emf.close();
+        // Redirigir al jsp /admin/editarPelicula.jsp
         getServletContext().getRequestDispatcher("/admin/editarPelicula.jsp").forward(request, response);
     }
 

@@ -32,15 +32,18 @@ public class ServicioMeGustaSeries implements Serializable {
         return emf.createEntityManager();
     }
 
+    // Añadir película como favorita
     public void marcarMeGusta(Long idUsuario, Long idSerie) {
         EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();
+            // Comprobar si existe
             Query check = em.createNativeQuery("SELECT COUNT(*) FROM me_gusta_series WHERE id_usuario = ? AND id_serie = ?");
             check.setParameter(1, idUsuario);
             check.setParameter(2, idSerie);
             Number count = (Number) check.getSingleResult();
 
+            // Si no existe, se crea
             if (count.intValue() == 0) {
                 Query insert = em.createNativeQuery("INSERT INTO me_gusta_series (id_usuario, id_serie) VALUES (?, ?)");
                 insert.setParameter(1, idUsuario);
@@ -53,10 +56,12 @@ public class ServicioMeGustaSeries implements Serializable {
         }
     }
 
+    // Eliminar serie de favoritos
     public void quitarMeGusta(Long idUsuario, Long idSerie) {
         EntityManager em = getEntityManager();
         try {
             em.getTransaction().begin();
+            // Se borra el resgistro de la tabla
             Query delete = em.createNativeQuery("DELETE FROM me_gusta_series WHERE id_usuario = ? AND id_serie = ?");
             delete.setParameter(1, idUsuario);
             delete.setParameter(2, idSerie);
@@ -67,6 +72,7 @@ public class ServicioMeGustaSeries implements Serializable {
         }
     }
 
+    // Obtener series favoritas de ese usuario
     public List<Series> obtenerSeriesFavoritas(Long idUsuario) {
         EntityManager em = getEntityManager();
         List<Series> favoritas = new ArrayList<>();

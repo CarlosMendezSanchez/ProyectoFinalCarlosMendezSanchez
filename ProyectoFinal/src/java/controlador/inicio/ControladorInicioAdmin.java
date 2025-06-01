@@ -70,7 +70,7 @@ public class ControladorInicioAdmin extends HttpServlet {
         try {
             /*
             * Si el parametro de accion es igual a eliminar, obtiene el id del usuario
-            * Comprueba que el usuario tenga o no experiencias para eliminar al usuario, si tiene, no lo elimina
+            * Elimina todas las relaciones que tenga ese usuario (me gusta, comentarios)
             * Agraga como atributo la lista de usuarios actualizada y redirige al jsp /admin/inicio.jsp
             */
             if ("eliminar".equals(accion)) {  

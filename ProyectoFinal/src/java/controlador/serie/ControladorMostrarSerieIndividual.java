@@ -41,17 +41,19 @@ public class ControladorMostrarSerieIndividual extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
-        // Instanciar el servicio de Peliculas.
+        // Instanciar el servicio de Series.
         ServicioSeries ss = new ServicioSeries(emf);
         Long id = Long.parseLong(request.getParameter("id"));
+        // Buscar series por id
         Series series = ss.findSeries(id);
         request.setAttribute("series", series);
         
         ServicioComentarios c = new ServicioComentarios(emf);
+        // Listar los comentarios de esa serie
         List<Comentarios> listaComentarios = c.findComentariosPorSerie(id);
         request.setAttribute("listaComentarios", listaComentarios);
         emf.close();
-        // Redirigir a /usuario/series.jsp
+        // Redirigir a /usuario/mostrarSerie.jsp
         getServletContext().getRequestDispatcher("/usuario/mostrarSerie.jsp").forward(request, response);
     }
 
@@ -76,8 +78,10 @@ public class ControladorMostrarSerieIndividual extends HttpServlet {
         Long idSerie = Long.parseLong(request.getParameter("idSer"));
         String error = "";
         
+        // Si la accion marcada es meGusta, se marca la serie como favorita para ese usuario
         if ("meGusta".equals(accion)) {
             servicio.marcarMeGusta(usuario.getId(), idSerie);
+        // Si la accion marcada es noMeGusta, se elimina la serie como favorita para ese usuario
         } else if ("noMeGusta".equals(accion)) {
             servicio.quitarMeGusta(usuario.getId(), idSerie);
         }

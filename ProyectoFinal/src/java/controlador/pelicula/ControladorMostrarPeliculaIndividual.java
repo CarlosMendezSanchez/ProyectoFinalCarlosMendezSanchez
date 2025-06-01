@@ -44,14 +44,16 @@ public class ControladorMostrarPeliculaIndividual extends HttpServlet {
         // Instanciar el servicio de Peliculas.
         ServicioPeliculas sp = new ServicioPeliculas(emf);
         Long id = Long.parseLong(request.getParameter("id"));
+        // Buscar pelis por id
         Peliculas peliculas = sp.findPeliculas(id);
         request.setAttribute("peliculas", peliculas);
         
         ServicioComentarios c = new ServicioComentarios(emf);
+        // Listar los comentarios de esa peli
         List<Comentarios> listaComentarios = c.findComentariosPorPelicula(id);
         request.setAttribute("listaComentarios", listaComentarios);
         emf.close();
-        // Redirigir a /usuario/peliculas.jsp
+        // Redirigir a /usuario/mostrarPeli.jsp
         getServletContext().getRequestDispatcher("/usuario/mostrarPeli.jsp").forward(request, response);
     }
 
@@ -76,8 +78,10 @@ public class ControladorMostrarPeliculaIndividual extends HttpServlet {
         Long idPelicula = Long.parseLong(request.getParameter("idPel"));
         String error = "";
         
+        // Si la accion marcada es meGusta, se marca la peli como favorita para ese usuario
         if ("meGusta".equals(accion)) {
             servicioFavoritos.marcarMeGusta(usuario.getId(), idPelicula);
+        // Si la accion marcada es noMeGusta, se elimina la peli como favorita para ese usuario
         } else if ("noMeGusta".equals(accion)) {
             servicioFavoritos.quitarMeGusta(usuario.getId(), idPelicula);
         }

@@ -31,6 +31,7 @@ public class ControladorGeneroPelis extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // Redirigir a /usuario/buscarPeliGenero.jsp
         getServletContext().getRequestDispatcher("/usuario/buscarPeliGenero.jsp").forward(request, response);
     }
 

@@ -144,6 +144,7 @@ public class ServicioSeries implements Serializable {
         }
     }
     
+    // Eliminar una serie junto a todos los datos relacionados con esta (sus comentarios, sus me gusta)
     public void eliminarSerieConRelaciones(Long idSerie) throws Exception {
         EntityManager em = getEntityManager();
         try {

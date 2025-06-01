@@ -38,15 +38,18 @@ public class ControladorMostrarPeliculaMeGusta extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // Se obtiene el usuario de la sesion
         HttpSession session = request.getSession();
         Usuario usuario = (Usuario) session.getAttribute("usuario");
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
         ServicioMeGustaPeliculas servicio = new ServicioMeGustaPeliculas(emf);
 
+        // Se listan las peliculas favoritas de ese usuario
         List<Peliculas> favoritas = servicio.obtenerPeliculasFavoritas(usuario.getId());
 
         request.setAttribute("favoritas", favoritas);
+        // Redirigir a /usuario/peliculasMeGusta.jsp
         getServletContext().getRequestDispatcher("/usuario/peliculasMeGusta.jsp").forward(request, response);
     }
 

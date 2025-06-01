@@ -31,6 +31,7 @@ public class ControladorGeneroSeries extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // Redirigir a /usuario/buscarSerieGenero.jsp
         getServletContext().getRequestDispatcher("/usuario/buscarSerieGenero.jsp").forward(request, response);
     }
 

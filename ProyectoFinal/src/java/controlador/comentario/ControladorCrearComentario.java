@@ -67,6 +67,7 @@ public class ControladorCrearComentario extends HttpServlet {
         Long id = Long.parseLong(request.getParameter("idP"));
         Peliculas peliculas = sp.findPeliculas(id);
         
+        // Crear objeto comentarios  y asignar los datos del formulario
         Comentarios comentarios = new Comentarios();
         comentarios.setContenido(contenido);
         comentarios.setUsuario(usuario);

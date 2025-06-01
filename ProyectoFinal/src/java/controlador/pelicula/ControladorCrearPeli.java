@@ -60,6 +60,7 @@ public class ControladorCrearPeli extends HttpServlet {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
         ServicioPeliculas sp = new ServicioPeliculas(emf);
         
+        // Obtener los parametros del formulario crear pelis
         String titulo = request.getParameter("titulo");
         String descripcion = request.getParameter("descripcion");
         String genero = request.getParameter("genero");
@@ -68,6 +69,7 @@ public class ControladorCrearPeli extends HttpServlet {
         String imagenHorizontal = request.getParameter("imagenHorizontal");
         int duracion = Integer.parseInt(request.getParameter("duracion"));
         
+        // Crear objeto pelicula y asignar los datos del formulario
         Peliculas pelicula = new Peliculas();
         pelicula.setTitulo(titulo);
         pelicula.setDescripcion(descripcion);
@@ -77,9 +79,11 @@ public class ControladorCrearPeli extends HttpServlet {
         pelicula.setImagen(imagen);
         pelicula.setImagenHorizontal(imagenHorizontal);
 
+        // Guardar en la base de datos
         sp.create(pelicula);
         emf.close();
         
+        // Redirigir al jsp /admin/crearPelicula.jsp
         getServletContext().getRequestDispatcher("/admin/crearPelicula.jsp").forward(request, response);
     }
 

@@ -45,7 +45,7 @@ public class ServicioMeGustaPeliculas implements Serializable {
             Number count = (Number) q.getSingleResult();
 
             if (count.intValue() == 0) {
-                // Insertar
+                // Si no existe, se crea
                 Query insert = em.createNativeQuery("INSERT INTO me_gusta_peliculas (id_usuario, id_pelicula) VALUES (?, ?)");
                 insert.setParameter(1, idUsuario);
                 insert.setParameter(2, idPelicula);

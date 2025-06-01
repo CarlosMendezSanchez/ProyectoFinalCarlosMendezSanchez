@@ -137,30 +137,32 @@ public class ServicioUsuario implements Serializable {
         }
     }
 
+    // Valido un usuario usando email y contraseña cifrada
     public Usuario validarUsuario(String email, String password) {
-    try {
-        String passwordCifrada = Cifrar.codificar(password);
-        Usuario usuario = obtenerUsuarioPorEmail(email);
-        if (usuario != null && usuario.getPassword().equals(passwordCifrada)) {
-            return usuario;
+        try {
+            String passwordCifrada = Cifrar.codificar(password);
+            Usuario usuario = obtenerUsuarioPorEmail(email);
+            if (usuario != null && usuario.getPassword().equals(passwordCifrada)) {
+                return usuario;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    } catch (Exception e) {
-        e.printStackTrace();
+        return null;
     }
-    return null;
-}
     
+    // Obtengo el usuario por email
     public Usuario obtenerUsuarioPorEmail(String email) {
-    EntityManager em = getEntityManager();
-    try {
-        Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.email = :email");
-        query.setParameter("email", email);
-        List<Usuario> usuarios = query.getResultList();
-        return usuarios.isEmpty() ? null : usuarios.get(0);
-    } finally {
-        em.close();
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.email = :email");
+            query.setParameter("email", email);
+            List<Usuario> usuarios = query.getResultList();
+            return usuarios.isEmpty() ? null : usuarios.get(0);
+        } finally {
+            em.close();
+        }
     }
-}
 
     public void crearUsuario(Usuario usuario) {
         EntityManager em = getEntityManager();
@@ -175,6 +177,7 @@ public class ServicioUsuario implements Serializable {
         }
     }
     
+    // Eliminar un usuario junto a todos los datos relacionados con este (sus comentarios, sus me gusta)
     public void eliminarUsuarioConRelaciones(Long id) throws Exception {
         EntityManager em = getEntityManager();
         try {

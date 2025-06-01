@@ -38,6 +38,7 @@ public class ControladorPelicula extends HttpServlet {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProyectoFinalPU");
         // Instanciar el servicio de Peliculas.
         ServicioPeliculas sp = new ServicioPeliculas(emf);
+        // Listar las peliculas existentes
         List<Peliculas> peliculas = sp.findPeliculasEntities();
         request.setAttribute("peliculas", peliculas);
         emf.close();
