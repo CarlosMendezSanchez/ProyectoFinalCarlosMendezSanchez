@@ -4,7 +4,7 @@ formulario.addEventListener("submit", function (e) {
     let esValido = true;
 
     const titulo = document.getElementById("titulo").value.trim();
-    if (titulo === "") {
+    if (!titulo.match(/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/) || titulo === "") {
         document.getElementById("error-titulo").style.display = "block";
         esValido = false;
     } else {

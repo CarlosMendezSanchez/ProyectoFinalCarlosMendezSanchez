@@ -13,7 +13,7 @@ formularioRegistro.addEventListener("submit", (e) => {
     }
 
     const apellidos = document.getElementById("apellidos").value.trim();
-    if (!apellidos.match(/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/) || apellidos === '') {
+    if (apellidos === '') {
         document.getElementById("error-apellidos").style.display = "block";
         esValido = false;
     } else {
