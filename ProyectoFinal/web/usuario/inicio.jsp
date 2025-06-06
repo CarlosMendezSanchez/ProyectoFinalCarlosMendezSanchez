@@ -4,11 +4,11 @@
     Author     : carlos
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="ISO-8859-1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/bootstrap.css">
         <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarOpciones">
                     <ul class="navbar-nav text-center text-md-end">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="${pageContext.request.contextPath}/usuario/ControladorPelicula">Ver PelÃ­culas</a>
+                            <a class="nav-link text-white" href="${pageContext.request.contextPath}/usuario/ControladorPelicula">Ver Películas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="${pageContext.request.contextPath}/usuario/ControladorSerie">Ver Series</a>
@@ -42,7 +42,7 @@
                         <li class="nav-item mt-2">
                             <a class="btn btn-sm px-4 shadow boton-fondo text-white text-decoration-none" 
                             href="${pageContext.request.contextPath}/ControladorLogin">
-                                Volver al inicio de sesiÃ³n
+                                Volver al inicio de sesión
                             </a>
                         </li>
                     </ul>
@@ -91,27 +91,27 @@
                 
                 <div class="col-md-3 mb-4">
                     <h5 class="fw-bold text-warning">Sobre nosotros</h5>
-                    <p class="text-white small"> Descubre quiÃ©nes somos, nuestra misiÃ³n y cÃ³mo trabajamos para brindarte el mejor contenido en streaming.</p>
+                    <p class="text-white small"> Descubre quiénes somos, nuestra misión y cómo trabajamos para brindarte el mejor contenido en streaming.</p>
                 </div>                
                 
                 <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold text-warning">CategorÃ­as</h5>
-                    <p class="text-white small">Explora nuestras categorÃ­as: acciÃ³n, comedia, drama, terror, documentales y mucho mÃ¡s.</p>
+                    <h5 class="fw-bold text-warning">Categorías</h5>
+                    <p class="text-white small">Explora nuestras categorías: acción, comedia, drama, terror, documentales y mucho más.</p>
                 </div>               
                 
                 <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold text-warning">TÃ©rminos y condiciones</h5>
-                    <p class="text-white small">Lee nuestras polÃ­ticas de uso, derechos de usuario y condiciones del servicio.</p>
+                    <h5 class="fw-bold text-warning">Términos y condiciones</h5>
+                    <p class="text-white small">Lee nuestras políticas de uso, derechos de usuario y condiciones del servicio.</p>
                 </div>
 
                 <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold text-warning">Soporte tÃ©cnico</h5>
-                    <p class="text-white small">Â¿Tienes problemas? ContÃ¡ctanos para recibir ayuda con tu cuenta, dispositivos o reproducciÃ³n.</p>
+                    <h5 class="fw-bold text-warning">Soporte técnico</h5>
+                    <p class="text-white small">¿Tienes problemas? Contáctanos para recibir ayuda con tu cuenta, dispositivos o reproducción.</p>
                 </div>
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center text-center color-fondo-footer arriba">
-                <p class="text-warning fw-bold">Copyright Â© 2025 Carlos MÃ©ndez SÃ¡nchez</p>
+                <p class="text-warning fw-bold">Copyright © 2025 Carlos Méndez Sánchez</p>
             </div>
         </footer>
         <script src="../resources/bootstrap/js/bootstrap.js"></script>

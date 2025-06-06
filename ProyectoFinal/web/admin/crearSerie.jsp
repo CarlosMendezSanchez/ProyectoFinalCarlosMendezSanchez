@@ -4,11 +4,11 @@
     Author     : carlos
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="ISO-8859-1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/bootstrap.css">
         <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
@@ -33,45 +33,45 @@
             <div class="card p-4 text-white shadow-lg rounded-4 anchura color-fondo-formulario">
                 <form method="post" id="formularioCrearSerie">
                     <div class="mb-3">
-                        <label class="form-label fw-bold">T√≠tulo</label>
+                        <label class="form-label fw-bold">TÌtulo</label>
                         <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" name="titulo" id="titulo">
-                        <span class="error" id="error-titulo">Introduzca un t√≠tulo v√°lido.</span>
+                        <span class="error" id="error-titulo">Introduzca un tÌtulo v·lido.</span>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-bold">Nombre de imagen vertical</label>
                         <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" name="imagen" id="imagen">
-                        <span class="error" id="error-imagen">Introduzca una imagen v√°lida.</span>
+                        <span class="error" id="error-imagen">Introduzca una imagen v·lida.</span>
                     </div>
                     
                     <div class="mb-3">
                         <label class="form-label fw-bold">Nombre de imagen horizontal</label>
                         <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" name="imagenHorizontal" id="imagenHorizontal">
-                        <span class="error" id="error-imagenHorizontal">Introduzca una imagen horizontal v√°lida.</span>
+                        <span class="error" id="error-imagenHorizontal">Introduzca una imagen horizontal v·lida.</span>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Descripci√≥n</label>
+                        <label class="form-label fw-bold">DescripciÛn</label>
                         <textarea class="form-control border-0 border-bottom border-warning text-white campo-fondo" name="descripcion" id="descripcion" rows="3"></textarea>
-                        <span class="error" id="error-descripcion">Introduzca una descripci√≥n v√°lida.</span>
+                        <span class="error" id="error-descripcion">Introduzca una descripciÛn v·lida.</span>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-bold">Temporadas</label>
                         <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="number" name="temporadas" id="temporadas">
-                        <span class="error" id="error-temporadas">Introduzca un n√∫mero de temporadas v√°lidas.</span>
+                        <span class="error" id="error-temporadas">Introduzca un n˙mero de temporadas v·lidas.</span>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold">G√©nero</label>
+                        <label class="form-label fw-bold">GÈnero</label>
                         <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" name="genero" id="genero">
-                        <span class="error" id="error-genero">Introduzca un g√©nero v√°lido.</span>
+                        <span class="error" id="error-genero">Introduzca un gÈnero v·lido.</span>
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label fw-bold">A√±o</label>
+                        <label class="form-label fw-bold">AÒo</label>
                         <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" name="ano" id="ano">
-                        <span class="error" id="error-ano">Introduzca un a√±o v√°lido.</span>
+                        <span class="error" id="error-ano">Introduzca un aÒo v·lido.</span>
                     </div>
 
                     <div class="d-flex justify-content-center align-items-center">
@@ -91,27 +91,27 @@
                 
                 <div class="col-md-3 mb-4">
                     <h5 class="fw-bold text-warning">Sobre nosotros</h5>
-                    <p class="text-white small"> Descubre qui√©nes somos, nuestra misi√≥n y c√≥mo trabajamos para brindarte el mejor contenido en streaming.</p>
+                    <p class="text-white small"> Descubre quiÈnes somos, nuestra misiÛn y cÛmo trabajamos para brindarte el mejor contenido en streaming.</p>
                 </div>                
                 
                 <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold text-warning">Categor√≠as</h5>
-                    <p class="text-white small">Explora nuestras categor√≠as: acci√≥n, comedia, drama, terror, documentales y mucho m√°s.</p>
+                    <h5 class="fw-bold text-warning">CategorÌas</h5>
+                    <p class="text-white small">Explora nuestras categorÌas: acciÛn, comedia, drama, terror, documentales y mucho m·s.</p>
                 </div>               
                 
                 <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold text-warning">T√©rminos y condiciones</h5>
-                    <p class="text-white small">Lee nuestras pol√≠ticas de uso, derechos de usuario y condiciones del servicio.</p>
+                    <h5 class="fw-bold text-warning">TÈrminos y condiciones</h5>
+                    <p class="text-white small">Lee nuestras polÌticas de uso, derechos de usuario y condiciones del servicio.</p>
                 </div>
 
                 <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold text-warning">Soporte t√©cnico</h5>
-                    <p class="text-white small">¬øTienes problemas? Cont√°ctanos para recibir ayuda con tu cuenta, dispositivos o reproducci√≥n.</p>
+                    <h5 class="fw-bold text-warning">Soporte tÈcnico</h5>
+                    <p class="text-white small">øTienes problemas? Cont·ctanos para recibir ayuda con tu cuenta, dispositivos o reproducciÛn.</p>
                 </div>
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center text-center color-fondo-footer arriba">
-                <p class="text-warning fw-bold">Copyright ¬© 2025 Carlos M√©ndez S√°nchez</p>
+                <p class="text-warning fw-bold">Copyright © 2025 Carlos MÈndez S·nchez</p>
             </div>
         </footer>
         <script src="../javascript/formularioCrearSerie.js"></script>

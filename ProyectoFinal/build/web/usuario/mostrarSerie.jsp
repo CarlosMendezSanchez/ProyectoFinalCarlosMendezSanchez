@@ -4,11 +4,11 @@
     Author     : carlos
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="ISO-8859-1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/bootstrap.css">
         <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
@@ -55,8 +55,8 @@
                 <hr class="border-warning">
                 <p class="mt-3">${series.descripcion}</p>
                 <p><strong>Temporadas:</strong> ${series.temporadas}</p>
-                <p><strong>GÃ©nero:</strong> ${series.genero}</p>
-                <p><strong>AÃ±o:</strong> ${series.ano}</p>
+                <p><strong>Género:</strong> ${series.genero}</p>
+                <p><strong>Año:</strong> ${series.ano}</p>
             </div>
 
             <div class="card mt-4 p-4 color-fondo-formulario text-white shadow rounded-4">
@@ -73,7 +73,7 @@
                 </c:if>
                 <div class="text-center mt-3">
                     <a class="btn btn-warning rounded-pill px-4" href="${pageContext.request.contextPath}/usuario/ControladorCrearComentarioSerie?idS=${series.id}">
-                        AÃ±adir comentario
+                        Añadir comentario
                     </a>
                 </div>
             </div>
@@ -81,7 +81,7 @@
             <div class="d-flex justify-content-center align-items-center abajo-arriba">
                 <div class="card p-4 text-white text-center shadow-lg rounded-4 anchura color-fondo-formulario">
                     <a class="text-warning" href="${pageContext.request.contextPath}/usuario/ControladorSerie">
-                        Volver al catÃ¡logo de series
+                        Volver al catálogo de series
                     </a>
                 </div>
             </div>
@@ -97,27 +97,27 @@
                 
                 <div class="col-md-3 mb-4">
                     <h5 class="fw-bold text-warning">Sobre nosotros</h5>
-                    <p class="text-white small"> Descubre quiÃ©nes somos, nuestra misiÃ³n y cÃ³mo trabajamos para brindarte el mejor contenido en streaming.</p>
+                    <p class="text-white small"> Descubre quiénes somos, nuestra misión y cómo trabajamos para brindarte el mejor contenido en streaming.</p>
                 </div>                
                 
                 <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold text-warning">CategorÃ­as</h5>
-                    <p class="text-white small">Explora nuestras categorÃ­as: acciÃ³n, comedia, drama, terror, documentales y mucho mÃ¡s.</p>
+                    <h5 class="fw-bold text-warning">Categorías</h5>
+                    <p class="text-white small">Explora nuestras categorías: acción, comedia, drama, terror, documentales y mucho más.</p>
                 </div>               
                 
                 <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold text-warning">TÃ©rminos y condiciones</h5>
-                    <p class="text-white small">Lee nuestras polÃ­ticas de uso, derechos de usuario y condiciones del servicio.</p>
+                    <h5 class="fw-bold text-warning">Términos y condiciones</h5>
+                    <p class="text-white small">Lee nuestras políticas de uso, derechos de usuario y condiciones del servicio.</p>
                 </div>
 
                 <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold text-warning">Soporte tÃ©cnico</h5>
-                    <p class="text-white small">Â¿Tienes problemas? ContÃ¡ctanos para recibir ayuda con tu cuenta, dispositivos o reproducciÃ³n.</p>
+                    <h5 class="fw-bold text-warning">Soporte técnico</h5>
+                    <p class="text-white small">¿Tienes problemas? Contáctanos para recibir ayuda con tu cuenta, dispositivos o reproducción.</p>
                 </div>
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center text-center color-fondo-footer arriba">
-                <p class="text-warning fw-bold">Copyright Â© 2025 Carlos MÃ©ndez SÃ¡nchez</p>
+                <p class="text-warning fw-bold">Copyright © 2025 Carlos Méndez Sánchez</p>
             </div>
         </footer>
         <script src="../resources/bootstrap/js/bootstrap.js"></script>

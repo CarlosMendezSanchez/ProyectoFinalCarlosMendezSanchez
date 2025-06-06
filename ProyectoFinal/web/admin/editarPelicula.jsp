@@ -4,11 +4,11 @@
     Author     : carlos
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="ISO-8859-1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../resources/bootstrap/css/bootstrap.css">
         <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
                         <img class="logo" src="../img/general/Logo.png" alt="logo">
                     </div>
                     <div class="d-flex col justify-content-end">
-                        <h1 class="text-white">Editar Pel√≠cula</h1>
+                        <h1 class="text-white">Editar PelÌcula</h1>
                     </div>
                 </div>
             </div>
@@ -35,39 +35,39 @@
                     <input type="hidden" name="id" value="${peliculas.id}">
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold">T√≠tulo</label>
+                        <label class="form-label fw-bold">TÌtulo</label>
                         <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" name="titulo" id="titulo" value="${peliculas.titulo}">
-                        <span class="error" id="error-titulo">Introduza un titulo v√°lido.</span>
+                        <span class="error" id="error-titulo">Introduza un titulo v·lido.</span>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-bold">Nombre de imagen</label>
                         <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" name="imagen" id="imagen" value="${peliculas.imagen}">
-                        <span class="error" id="error-imagen">Introduzca una imagen v√°lida.</span>
+                        <span class="error" id="error-imagen">Introduzca una imagen v·lida.</span>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Descripci√≥n</label>
+                        <label class="form-label fw-bold">DescripciÛn</label>
                         <textarea class="form-control border-0 border-bottom border-warning text-white campo-fondo" name="descripcion" id="descripcion" rows="3">${peliculas.descripcion}</textarea>
-                        <span class="error" id="error-descripcion">Introduza una descripci√≥n v√°lida.</span>
+                        <span class="error" id="error-descripcion">Introduza una descripciÛn v·lida.</span>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Duraci√≥n</label>
+                        <label class="form-label fw-bold">DuraciÛn</label>
                         <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" name="duracion" id="duracion" value="${peliculas.duracion}">
-                        <span class="error" id="error-duracion">Introduzca una duraci√≥n v√°lida.</span>
+                        <span class="error" id="error-duracion">Introduzca una duraciÛn v·lida.</span>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold">G√©nero</label>
+                        <label class="form-label fw-bold">GÈnero</label>
                         <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" name="genero" id="genero" value="${peliculas.genero}">
-                        <span class="error" id="error-genero">Introduzca un g√©nero v√°lido.</span>
+                        <span class="error" id="error-genero">Introduzca un gÈnero v·lido.</span>
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label fw-bold">A√±o</label>
+                        <label class="form-label fw-bold">AÒo</label>
                         <input class="form-control border-0 border-bottom border-warning text-white campo-fondo" type="text" name="ano" id="ano" value="${peliculas.ano}">
-                        <span class="error" id="error-ano">Introduza un a√±o v√°lido.</span>
+                        <span class="error" id="error-ano">Introduza un aÒo v·lido.</span>
                     </div>
 
                     <div class="d-flex justify-content-center align-items-center">
@@ -86,27 +86,27 @@
                 
                 <div class="col-md-3 mb-4">
                     <h5 class="fw-bold text-warning">Sobre nosotros</h5>
-                    <p class="text-white small"> Descubre qui√©nes somos, nuestra misi√≥n y c√≥mo trabajamos para brindarte el mejor contenido en streaming.</p>
+                    <p class="text-white small"> Descubre quiÈnes somos, nuestra misiÛn y cÛmo trabajamos para brindarte el mejor contenido en streaming.</p>
                 </div>                
                 
                 <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold text-warning">Categor√≠as</h5>
-                    <p class="text-white small">Explora nuestras categor√≠as: acci√≥n, comedia, drama, terror, documentales y mucho m√°s.</p>
+                    <h5 class="fw-bold text-warning">CategorÌas</h5>
+                    <p class="text-white small">Explora nuestras categorÌas: acciÛn, comedia, drama, terror, documentales y mucho m·s.</p>
                 </div>               
                 
                 <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold text-warning">T√©rminos y condiciones</h5>
-                    <p class="text-white small">Lee nuestras pol√≠ticas de uso, derechos de usuario y condiciones del servicio.</p>
+                    <h5 class="fw-bold text-warning">TÈrminos y condiciones</h5>
+                    <p class="text-white small">Lee nuestras polÌticas de uso, derechos de usuario y condiciones del servicio.</p>
                 </div>
 
                 <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold text-warning">Soporte t√©cnico</h5>
-                    <p class="text-white small">¬øTienes problemas? Cont√°ctanos para recibir ayuda con tu cuenta, dispositivos o reproducci√≥n.</p>
+                    <h5 class="fw-bold text-warning">Soporte tÈcnico</h5>
+                    <p class="text-white small">øTienes problemas? Cont·ctanos para recibir ayuda con tu cuenta, dispositivos o reproducciÛn.</p>
                 </div>
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center text-center color-fondo-footer arriba">
-                <p class="text-warning fw-bold">Copyright ¬© 2025 Carlos M√©ndez S√°nchez</p>
+                <p class="text-warning fw-bold">Copyright © 2025 Carlos MÈndez S·nchez</p>
             </div>
         </footer>
         <script src="../javascript/formularioEditarPelicula.js"></script>
